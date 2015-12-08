@@ -1,0 +1,29 @@
+
+span.input-icon{width:100%;}
+.top_gap{margin-top:15px;}
+.top_frm input[type="text"]{ width:100%}
+
+.top_frm{ margin-top:50px;}
+.no_mar{ margin:0 auto; float:none !important;}
+.no_mar input[type="text"]{margin-top:3px}
+.profile-info-name{ width:130px;}
+
+.login-container {width: 375px; margin: 13% auto 0!important;}
+.btn-success, .btn-success:focus {
+    background-color: #428bca!important;
+    border-color: #428bca;
+}
+.btn-success:hover, .btn-success:active, .open>.btn-success.dropdown-toggle {
+    background-color: #1b6aaa!important;
+    border-color: #428bca;
+}
+.signup-box .toolbar {
+    background: #5090C1!important;
+    border-top: 2px solid #597597!important;
+    padding: 9px 18px;
+}
+
+
+
+
+
