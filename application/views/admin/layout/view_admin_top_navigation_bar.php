@@ -16,10 +16,10 @@
         </button>
 
         <div class="navbar-header pull-left">
-            <a href="index.html" class="navbar-brand">
+            <a href="<?php echo site_url("admin/dashboard"); ?>" class="navbar-brand">
                 <small>
                     <i class="fa fa-leaf"></i>
-                    Student manegment
+                    PayFees
                 </small>
             </a>
         </div>
@@ -293,7 +293,7 @@
                     </a>
 
                     <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-                        <li>
+                       <!-- <li>
                             <a href="#">
                                 <i class="ace-icon fa fa-cog"></i>
                                 Settings
@@ -307,7 +307,7 @@
                             </a>
                         </li>
 
-                        <li class="divider"></li>
+                        <li class="divider"></li>-->
 
                         <li>
                             <a href="<?php echo site_url("admin/logout");?>">

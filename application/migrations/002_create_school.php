@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Migration_Create_Admin extends CI_Migration
+class Migration_Create_School extends CI_Migration
 {
 
     public function up()
@@ -13,26 +13,24 @@ class Migration_Create_Admin extends CI_Migration
                 'unsigned' => TRUE,
                 'auto_increment' => TRUE
             ),
-            'email' => array(
-                'type' => 'VARCHAR',
-                'constraint' => '255',
-            ),
-            'full_name' => array(
+            'school_name' => array(
                 'type' => 'TEXT',
-                'null' => TRUE,
             ),
-            'password' => array(
-                'type' => 'CHAR',
-                'constraint' => '32',
+            'school_details' => array(
+                'type' => 'TEXT',
             ),
+            'address' => array(
+                'type' => 'VARCHAR',
+                'constraint'=>'255'
+            )
         ));
         $this->dbforge->add_key('id', TRUE);
-        $this->dbforge->create_table('admins');
+        $this->dbforge->create_table('schools');
     }
 
     public function down()
     {
-        $this->dbforge->drop_table('admins');
+        $this->dbforge->drop_table('schools');
     }
 
 }

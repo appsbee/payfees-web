@@ -7,8 +7,10 @@ class Migration extends CI_Controller
     public function index()
     {
         $this->load->library('migration');
-        if (!empty($this->migration->error_string())) {
-            echo $this->migration->error_string();
+
+        $error_string = $this->migration->error_string();
+        if (!empty($error_string)) {
+            echo $error_string;
         } else
             echo "Successfully executed all migrations.";
     }

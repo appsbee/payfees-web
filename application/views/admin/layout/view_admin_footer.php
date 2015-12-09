@@ -1,4 +1,36 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
+
+<div class="footer">
+    <div class="footer-inner">
+        <div class="footer-content">
+						<span class="bigger-120">
+							<span class="blue bolder">PayFees</span>
+							 &copy; Appsbee Technology 2015-2016
+						</span>
+
+            &nbsp; &nbsp;
+						<span class="action-buttons">
+							<a href="#">
+                                <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+                            </a>
+
+							<a href="#">
+                                <i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
+                            </a>
+
+							<a href="#">
+                                <i class="ace-icon fa fa-rss-square orange bigger-150"></i>
+                            </a>
+						</span>
+        </div>
+    </div>
+</div>
+
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+</a>
+</div><!-- /.main-container -->
+
 <!-- basic scripts -->
 
 <!--[if !IE]> -->
@@ -19,7 +51,7 @@
 
 <!--[if IE]>
 <script type="text/javascript">
-    window.jQuery || document.write("<script src='<?php echo base_url("assets/js/jquery1x.min.js")?>'>"+"<"+"/script>");
+    window.jQuery || document.write("<script src='<?php echo base_url("assets/js/jquery1x.min.js");?>'>"+"<"+"/script>");
 </script>
 <![endif]-->
 <script type="text/javascript">
@@ -71,7 +103,10 @@
 <?php
 if(isset($scripts)){
     foreach($scripts as $script){
-        echo "<link rel=\"stylesheet\" href=\"$script\" class=\"ace-main-stylesheet\" />";
+        echo '<script type="text/javascript">';
+        echo $script;
+        echo "</script>";
+
     }
 }
 ?>
@@ -85,9 +120,7 @@ if(isset($scripts)){
                 .dataTable( {
                     bAutoWidth: false,
                     "aoColumns": [
-                        { "bSortable": false },
-                        null, null,null, null, null,
-                        { "bSortable": false }
+                        null, null,null, null,
                     ],
                     "aaSorting": [],
 

@@ -20,6 +20,7 @@ class Dashboard extends Base_Admin_Controller
         $this->data["userName"] = $this->session->user_name;
         $this->_loadView("admin/dashboard/view_index");
     }
+
 }
 
 ?>
