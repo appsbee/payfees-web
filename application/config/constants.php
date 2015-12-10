@@ -86,9 +86,15 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 
 // My constants
+defined('SALT')       OR define('SALT', "hctaCeMfIuoYnaC");
+
 defined('USER_ADMIN')       OR define('USER_ADMIN', "admin");
 defined('USER_SCHOOL')      OR define('USER_SCHOOL', "school");
 defined('USER_PARENT')      OR define('USER_PARENT', "parent");
+
+defined('STATE_ACTIVE')      OR define('STATE_ACTIVE', 1);
+defined('STATE_NOT_ACTIVE')      OR define('STATE_NOT_ACTIVE', 0);
+defined('STATE_DISABLED')      OR define('STATE_DISABLED', 2);
 
 
 

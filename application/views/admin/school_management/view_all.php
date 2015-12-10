@@ -100,8 +100,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </tbody>
                     </table>
 
-
-
                     <!-- PAGE CONTENT ENDS -->
                 </div><!-- /.col -->
             </div><!-- /.row -->

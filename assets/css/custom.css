@@ -26,9 +26,9 @@ span.input-icon{width:100%;}
 
 .pad_right{padding-right:0;}
 .pad_left{padding-left:0;}
-.session1{width:46%; float:left;}
-.to{width:2%; float:left; padding:7px;}
-.session2{width:46%; float:right;}
+.session1{width:30%; float:left;}
+.to{width:10%; float:left; padding:7px;}
+.session2{width:30%; float:left;}
 
 
 
