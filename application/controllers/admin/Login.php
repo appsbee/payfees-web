@@ -15,7 +15,7 @@ class Login extends CI_Controller
                 $row = $this->admin->authenticate($email, $password);
                 if ($row != NULL) {
                     $this->session->set_userdata("user_id", $row->id);
-                    $this->session->set_userdata("user_name", $row->name);
+                    $this->session->set_userdata("user_name", $row->full_name);
                     $this->session->set_userdata("user_type", USER_ADMIN);
 
                     redirect("admin/dashboard");
