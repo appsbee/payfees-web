@@ -20,6 +20,11 @@ class MSchool extends CI_Model
         $this->db->insert($this->tableName, $data);
         return $this->db->insert_id();
     }
+
+    public function all()
+    {
+        return $this->db->get($this->tableName)->result();
+    }
 }
 
 ?>

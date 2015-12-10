@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                    <table id="" class="table table-striped table-bordered table-hover" width="100%">
                    <thead> 
-                   <tr>
+                        <tr>
 
                             <th width="20%">School Name</th>
                             <th width="30%">School Address</th>
@@ -42,23 +42,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <th width="20%">Contact Email</th>
                             <th width="10%">Phone No.</th>
  
-                        </tr> 
-                        </thead>
-  <tr>
-    <td>Jawahar High School</td>
-    <td>30, Rishi tech park</td>
-    <td>R Sharma</td>
-    <td>studentmanagemnt@gmail.com</td>
-    <td>9830545585</td>
-  </tr>
-   <tr>
-    <td>Jawahar High School</td>
-    <td>30, Rishi tech park</td>
-    <td>R Sharma</td>
-    <td>studentmanagemnt@gmail.com</td>
-    <td>9830545585</td>
-  </tr>
-</table>
+                        </tr>
+                   </thead>
+                   <tbody>
+                    <?php
+
+                        foreach($schools as $school){
+                           echo "<tr>\n";
+                           echo "<td>$school->school_name</td>\n";
+                           echo "<td>$school->address</td>\n";
+                           echo "<td>$school->contact_person</td>\n";
+                           echo "<td>$school->contact_email</td>\n";
+                           echo "<td>$school->contact_no</td>\n";
+                           echo "</tr>\n";
+                        }
+                    ?>
+                      <!--<tr>
+                        <td>Jawahar High School</td>
+                        <td>30, Rishi tech park</td>
+                        <td>R Sharma</td>
+                        <td>studentmanagemnt@gmail.com</td>
+                        <td>9830545585</td>
+                      </tr>
+                       <tr>
+                        <td>Jawahar High School</td>
+                        <td>30, Rishi tech park</td>
+                        <td>R Sharma</td>
+                        <td>studentmanagemnt@gmail.com</td>
+                        <td>9830545585</td>
+                      </tr>-->
+                    </tbody>
+                </table>
 
                     
 

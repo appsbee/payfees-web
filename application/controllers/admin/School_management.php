@@ -42,13 +42,13 @@ class School_management extends Base_Admin_Controller
 
                 $this->load->model("MSchool", "school");
 
-                $school_id = $this->school->create($schoolAdminName,$details,$address,$sessionStart,$sessionEnd,$contactPerson,$contactEmail,$contactPhone);
+                $school_id = $this->school->create($schoolAdminName, $details, $address, $sessionStart, $sessionEnd, $contactPerson, $contactEmail, $contactPhone);
 
                 if ($school_id != -1) {
                     $this->load->model("MSchoolAdmin", 'schoolAdmin');
                     $admin_id = $this->schoolAdmin->create($school_id, $schoolAdminEmail, $schoolAdminName, $schoolAdminPassword, $schoolAdminPhone, 1, STATE_ACTIVE);
                     if ($admin_id != -1) {
-                        $this->session->set_flashdata("success","School ". $schoolName . " created successfully.");
+                        $this->session->set_flashdata("success", "School " . $schoolName . " created successfully.");
                         redirect("admin/school-management/create");
                     }
 
@@ -75,9 +75,14 @@ class School_management extends Base_Admin_Controller
 
     public function view_all()
     {
+        $this->load->model("MSchool", 'school');
+        $schools = $this->school->all();
+
         $this->data["script_js_list"] = array(base_url("assets/js/_admin_school_view_all.js"));
         $this->data['pageTitle'] = "PayFees - All School";
         $this->data["userName"] = $this->session->user_name;
+        $this->data["schools"] = $schools;
+
         $this->_loadView("admin/school_management/view_all");
     }
 
