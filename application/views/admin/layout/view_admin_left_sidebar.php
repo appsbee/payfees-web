@@ -41,19 +41,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
         </div><!-- /.sidebar-shortcuts -->
 
         <ul class="nav nav-list">
-            <li class="">
-                <a href="<?php echo site_url("admin/school-management"); ?>">
-                    <i class="ace-icon fa fa-users"></i>
-                    <span class="menu-text"> School Management </span>
+            <!--<li class="">
+                <a href="index.html">
+                    <i class="menu-icon fa fa-tachometer"></i>
+                    <span class="menu-text"> Dashboard </span>
                 </a>
 
                 <b class="arrow"></b>
-            </li>
+            </li>-->
+
             <li class="">
                 <a href="#" class="dropdown-toggle">
                     <i class="menu-icon fa fa-desktop"></i>
 							<span class="menu-text">
-								Fees Setting
+								School Management
 							</span>
 
                     <b class="arrow fa fa-angle-down"></b>
@@ -63,58 +64,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 
                 <ul class="submenu">
                     <li class="">
-                        <a href="#" class="dropdown-toggle">
+                        <a href="<?php echo site_url("admin/school-management/create");?>">
                             <i class="menu-icon fa fa-caret-right"></i>
-
-                            Payment
-                            <b class="arrow fa fa-angle-down"></b>
+                            Create School
                         </a>
 
                         <b class="arrow"></b>
-
-                        <ul class="submenu">
-                            <li class="">
-                                <a href="#">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    By App
-                                </a>
-
-                                <b class="arrow"></b>
-                            </li>
-
-                            <li class="">
-                                <a href="#">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    By Bank
-                                </a>
-
-                                <b class="arrow"></b>
-                            </li>
-
-                            <li class="">
-                                <a href="#">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    By Cash
-                                </a>
-
-                                <b class="arrow"></b>
-                            </li>
-
-
-
-
-
-
-                        </ul>
                     </li>
 
-            <li class="">
-                <a href="index.html">
-                    <i class="ace-icon fa fa-users"></i>
-                    <span class="menu-text"> Upload Student </span>
-                </a>
+                    <li class="">
+                        <a href="<?php echo site_url("admin/school-management/view-all");?>">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            View All
+                        </a>
 
-                <b class="arrow"></b>
+                        <b class="arrow"></b>
+                    </li>
+
+
+                </ul>
             </li>
 
 
