@@ -31,15 +31,47 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="row">
                 <div class="col-xs-12">
                     <!-- PAGE CONTENT BEGINS -->
+                    
+                   <table id="" class="table table-striped table-bordered table-hover" width="100%">
+                   <thead> 
+                   <tr>
 
-                    <table id="" class="table table-striped table-bordered table-hover" width="100%">
+                            <th width="20%">School Name</th>
+                            <th width="30%">School Address</th>
+                            <th width="20%">Contact Name</th>
+                            <th width="20%">Contact Email</th>
+                            <th width="10%">Phone No.</th>
+ 
+                        </tr> 
+                        </thead>
+  <tr>
+    <td>Jawahar High School</td>
+    <td>30, Rishi tech park</td>
+    <td>R Sharma</td>
+    <td>studentmanagemnt@gmail.com</td>
+    <td>9830545585</td>
+  </tr>
+   <tr>
+    <td>Jawahar High School</td>
+    <td>30, Rishi tech park</td>
+    <td>R Sharma</td>
+    <td>studentmanagemnt@gmail.com</td>
+    <td>9830545585</td>
+  </tr>
+</table>
+
+                    
+
+                 <!--<table id="" class="table table-striped table-bordered table-hover" width="100%">
                         <thead>
                         <tr>
 
                             <th width="25%">School Name</th>
                             <th width="35%">School Address</th>
-                            <th width="30%">Admin</th>
-                            <th width="8%">&nbsp;</th>
+                            <th width="30%">Contact Name</th>
+                            <th width="8%">Contact Email</th>
+                            <th width="30%">Phone No.</th>
+ 
                         </tr>
                         </thead>
 
@@ -50,7 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <td>Rakesh Sharma<br>
                                 985959582822</td>
                             <td rowspan="3">
-                                <a href="<?php echo site_url("admin/school-management/edit");?>">
+                                <a href="">
                                 <button class="btn btn-xs btn-info">
                                     <i class="ace-icon fa fa-pencil bigger-120"></i>
                                 </button>
@@ -98,7 +130,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
                         </tbody>
-                    </table>
+                    </table>-->
 
                     <!-- PAGE CONTENT ENDS -->
                 </div><!-- /.col -->
