@@ -42,7 +42,7 @@ class School_management extends Base_Admin_Controller
 
                 $this->load->model("MSchool", "school");
 
-                $school_id = $this->school->create($schoolAdminName, $details, $address, $sessionStart, $sessionEnd, $contactPerson, $contactEmail, $contactPhone);
+                $school_id = $this->school->create($schoolName, $details, $address, $sessionStart, $sessionEnd, $contactPerson, $contactEmail, $contactPhone);
 
                 if ($school_id != -1) {
                     $this->load->model("MSchoolAdmin", 'schoolAdmin');
@@ -87,9 +87,25 @@ class School_management extends Base_Admin_Controller
     }
 
     //return create school view
-    public function edit()
+    public function edit($schoolId = NULL)
     {
-        $this->data["script_js_list"] = array(base_url("assets/js/_admin_edit_school.js"));
+        if ($schoolId == null) {
+            redirect("admin/school-management/view-all");
+            return;
+        }
+        $this->load->model("MSchool", "school");
+        $this->load->model("MSchoolAdmin", "schoolAdmin");
+
+        $school = $this->school->get($schoolId);
+        $schoolAdmins = $this->schoolAdmin->get($schoolId);
+
+        $this->data['school']=$school;
+        $this->data['schoolAdmins']=$schoolAdmins;
+
+
+        $this->data["script_js_list"] = array();
+        $this->data["script_js_list"][] = base_url("assets/js/_admin_edit_school.js");
+        $this->data["script_js_list"][] = base_url("assets/js/chosen.jquery.min.js");
         $this->data['pageTitle'] = "PayFees - Edit School";
         $this->data["userName"] = $this->session->user_name;
         $this->_loadView("admin/school_management/view_edit");

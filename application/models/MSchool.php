@@ -25,6 +25,13 @@ class MSchool extends CI_Model
     {
         return $this->db->get($this->tableName)->result();
     }
+
+    public function get($schoolId)
+    {
+        return $this->db->get_where($this->tableName,array('id'=>$schoolId),1)->row();
+    }
+
+
 }
 
 ?>

@@ -19,6 +19,12 @@ class MSchoolAdmin extends CI_Model
         $this->db->insert($this->tableName, $data);
         return $this->db->insert_id();
     }
+
+    public function get($schoolId)
+    {
+        return $this->db->get_where($this->tableName,array('school_id'=>$schoolId))->result();
+    }
+
 }
 
 ?>

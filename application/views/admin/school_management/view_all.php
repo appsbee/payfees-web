@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                         foreach($schools as $school){
                            echo "<tr>\n";
-                           echo "<td>$school->school_name</td>\n";
+                           echo "<td><a href='".site_url("admin/school-management/edit/".$school->id)."'>$school->school_name</a></td>\n";
                            echo "<td>$school->address</td>\n";
                            echo "<td>$school->contact_person</td>\n";
                            echo "<td>$school->contact_email</td>\n";
