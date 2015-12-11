@@ -152,7 +152,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             echo "<td>$schoolAdmin->email</td>\n";
                                             echo "<td>$schoolAdmin->phone_number</td>\n";
                                             $isAdmin = ($schoolAdmin->is_main_account==0) ? "No" : "Yes" ;
+                                            $isActivated ;
+                                            switch((int)$schoolAdmin->activated){
+                                                case STATE_ACTIVE:
+                                                    $isActivated = "Active";
+                                                    break;
+                                                case STATE_NOT_ACTIVE:
+                                                    $isActivated = "Not Active";
+                                                    break;
+                                                case STATE_DISABLED:
+                                                    $isActivated = "Disabled";
+                                                    break;
+
+
+                                            }
+                                            ($schoolAdmin->is_main_account==0) ? "No" : "Yes" ;
                                             echo "<td>".$isAdmin."</td>\n";
+                                            echo "<td>".$isActivated."</td>\n";
                                             echo "<td>Reset Password</td>\n";
                                             echo "</tr>\n";
                                         }
