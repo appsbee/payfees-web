@@ -19,6 +19,14 @@ class Migration_Create_School extends CI_Migration
             'school_details' => array(
                 'type' => 'TEXT',
             ),
+            'session_start'=>array(
+                'type'=>'TINYINT',
+                'constraint'=>'3'
+            ),
+            'session_end'=>array(
+                'type'=>'TINYINT',
+                'constraint'=>'3'
+            ),
             'address' => array(
                 'type' => 'VARCHAR',
                 'constraint'=>'255'
