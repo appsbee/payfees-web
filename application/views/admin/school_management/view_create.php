@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <label class="col-sm-3" for="form-field-1"> School Name</label>
                             <div class="col-sm-9">
                                 <?php echo form_input('school_name',set_value('school_name'),array("class"=>"form-control")) ;?>
-                                <p class="error_msg">The School name field is required.</p>
+                                <?php echo "<div class=\"error_msg\">". form_error('school_name') ."</div>"; ?>
                             </div>
                         </div>
 
@@ -46,8 +46,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <label class="col-sm-3" for="form-field-1"> School Address</label>
                             <div class="col-sm-9">
                                 <?php echo form_textarea("address",set_value("address"),array("class"=>"form-control limited","maxlength"=>"100"));?>
-                                <p class="error_msg">The School name field is required.</p>
-                                
+                                <?php echo "<div class=\"error_msg\">". form_error('address') ."</div>"; ?>
+
                             </div>
                         </div>
 
@@ -56,6 +56,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <label class="col-sm-3" for="form-field-1"> School Details</label>
                             <div class="col-sm-9">
                                 <?php echo form_textarea("details",set_value("details"),array("class"=>"form-control limited","maxlength"=>"100"));?>
+                                <?php echo "<div class=\"error_msg\">". form_error('details') ."</div>"; ?>
+
                             </div>
                         </div>
 
@@ -108,18 +110,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <label class="col-sm-3" for="form-field-1"> Contact Person Name</label>
                             <div class="col-sm-9">
                                 <?php echo form_input('contact_person_name',set_value('contact_person_name'),array("class"=>"form-control")) ;?>
+                                <?php echo "<div class=\"error_msg\">". form_error('contact_person_name') ."</div>"; ?>
+
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3" for="form-field-1"> Contact Person Email</label>
                             <div class="col-sm-9">
                                 <?php echo form_input('contact_person_email',set_value('contact_person_email'),array("class"=>"form-control")) ;?>
+                                <?php echo "<div class=\"error_msg\">". form_error('contact_person_email') ."</div>"; ?>
+
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3" for="form-field-1"> Contact Person Phone</label>
                             <div class="col-sm-9">
                                 <?php echo form_input('contact_person_phone',set_value('contact_person_phone'),array("class"=>"form-control")) ;?>
+                                <?php echo "<div class=\"error_msg\">". form_error('contact_person_phone') ."</div>"; ?>
+
                             </div>
                         </div>
 
@@ -129,6 +137,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <label class="col-sm-3" for="">User Name</label>
                             <div class="col-sm-9">
                                 <?php echo form_input('school_admin_name',set_value('school_admin_name'),array("class"=>"form-control")) ;?>
+                                <?php echo "<div class=\"error_msg\">". form_error('school_admin_name') ."</div>"; ?>
+
                             </div>
                         </div>
 
@@ -136,6 +146,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <label class="col-sm-3" for="">Email</label>
                             <div class="col-sm-9">
                                 <?php echo form_input('school_admin_email',set_value('school_admin_email'),array("class"=>"form-control")) ;?>
+                                <?php echo "<div class=\"error_msg\">". form_error('school_admin_email') ."</div>"; ?>
+
                             </div>
                         </div>
 
@@ -143,6 +155,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <label class="col-sm-3" for="">Password</label>
                             <div class="col-sm-9">
                                 <?php echo form_password('school_admin_password',set_value('school_admin_password'),array("class"=>"form-control")) ;?>
+                                <?php echo "<div class=\"error_msg\">". form_error('school_admin_password') ."</div>"; ?>
+
                             </div>
                         </div>
 
@@ -150,6 +164,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <label class="col-sm-3" for="">Contact Number</label>
                             <div class="col-sm-9">
                                 <?php echo form_input('school_admin_phone',set_value('school_admin_phone'),array("class"=>"form-control")) ;?>
+                                <?php echo "<div class=\"error_msg\">". form_error('school_admin_phone') ."</div>"; ?>
+
                             </div>
                         </div>
 
@@ -158,7 +174,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             Submit
                         </button>
                     <?php echo $this->session->error ?>
-                    <?php echo validation_errors(); ?>
 
                     <?php echo form_close()?>
 
