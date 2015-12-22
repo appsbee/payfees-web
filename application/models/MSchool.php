@@ -21,6 +21,11 @@ class MSchool extends CI_Model
         return $this->db->insert_id();
     }
 
+    public function update($schoolId,$contentValue){
+        $this->db->update($this->tableName, $contentValue, "id = $schoolId");
+        return $this->db->affected_rows();
+    }
+
     public function all()
     {
         return $this->db->get($this->tableName)->result();

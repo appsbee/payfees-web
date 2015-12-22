@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="form-group">
                             <label class="col-sm-3" for="form-field-1"> School Address</label>
                             <div class="col-sm-9">
-                                <?php echo form_textarea("address",set_value("address"),array("class"=>"form-control limited","maxlength"=>"100"));?>
+                                <?php echo form_textarea("address",set_value("address"),array("class"=>"form-control limited","maxlength"=>"255"));?>
                                 <?php echo "<div class=\"error_msg\">". form_error('address') ."</div>"; ?>
 
                             </div>
@@ -55,7 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="form-group">
                             <label class="col-sm-3" for="form-field-1"> School Details</label>
                             <div class="col-sm-9">
-                                <?php echo form_textarea("details",set_value("details"),array("class"=>"form-control limited","maxlength"=>"100"));?>
+                                <?php echo form_textarea("details",set_value("details"),array("class"=>"form-control limited"));?>
                                 <?php echo "<div class=\"error_msg\">". form_error('details') ."</div>"; ?>
 
                             </div>

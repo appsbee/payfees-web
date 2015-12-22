@@ -41,23 +41,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <h4>School Information</h4>
                                     <p>Manage the school details.</p>
                                 </div>
+                                <?php echo form_open("admin/school-management/update/".$school->id,array("class"=>"form-horizontal","role"=>"form")); ?>
                                 <form class="form-horizontal f_top" role="form">
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> School Name</label>
                                         <div class="col-sm-9">
-                                            <input type="text" id="" name="school_name" value="<?php echo $school->school_name; ?>" placeholder="School Name" class="col-xs-10 col-sm-8">
+                                            <?php echo form_input('school_name',set_value('school_name',NULL)==NULL ?$school->school_name :set_value('school_name') ,array("class"=>"form-control","placeholder"=>"School Name","class"=>"col-xs-10 col-sm-8")) ;?>
+                                            <?php echo "<div class=\"error_msg\">". form_error('school_name') ."</div>"; ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> School Address</label>
                                         <div class="col-sm-9">
-                                            <textarea class="col-xs-10 col-sm-8" id="form-field-9" placeholder="School Address" maxlength="255"><?php echo $school->address;?></textarea>
+                                            <?php echo form_textarea("address",set_value("address",NULL)==NULL? $school->address :set_value("address") ,array("class"=>"col-xs-10 col-sm-8", "id"=>"form-field-9", "placeholder"=>"School Address","maxlength"=>"255"));?>
+                                            <?php echo "<div class=\"error_msg\">". form_error('address') ."</div>"; ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> School Details</label>
                                         <div class="col-sm-9">
-                                            <textarea class="col-xs-10 col-sm-8" id="form-field-9" placeholder="School Details" maxlength="100"><?php echo $school->school_details;?></textarea>
+                                            <?php echo form_textarea("details",set_value("details",NULL)==NULL? $school->school_details :set_value("details") ,array("class"=>"col-xs-10 col-sm-8", "id"=>"form-field-9", "placeholder"=>"School Details"));?>
+                                            <?php echo "<div class=\"error_msg\">". form_error('address') ."</div>"; ?>
                                         </div>
                                     </div>
 
@@ -66,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <div class="col-sm-6">
                                         <div class="col-sm-5 session_part">
 
-                                                <select class="chosen-select form-control" id="" >
+                                                <select class="chosen-select form-control" id="" name="session_start" >
                                                     <option value="0" <?php if($school->session_start==0) echo " selected=\"selected\""; ?> >Jan</option>
                                                     <option value="1" <?php if($school->session_start==1) echo " selected=\"selected\""; ?>>Feb</option>
                                                     <option value="2" <?php if($school->session_start==2) echo " selected=\"selected\""; ?>>March</option>
@@ -87,7 +91,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         </div>
                                         <div class="col-sm-5 session_part">
 
-                                                <select class="chosen-select form-control" id="">
+                                                <select class="chosen-select form-control" id="" name="session_end">
                                                     <option value="0" <?php if($school->session_end==0) echo " selected=\"selected\""; ?>>Jan</option>
                                                     <option value="1" <?php if($school->session_end==1) echo " selected=\"selected\""; ?>>Feb</option>
                                                     <option value="2" <?php if($school->session_end==2) echo " selected=\"selected\""; ?>>March</option>
@@ -110,23 +114,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Contact Person Name</label>
                                         <div class="col-sm-9">
-                                            <input type="text" id="" value="<?php echo $school->contact_person; ?>" class="col-xs-10 col-sm-8">
+                                            <?php echo form_input('contact_person_name',set_value('contact_person_name',NULL)==NULL?$school->contact_person:set_value("contact_person_name"),array("class"=>"col-xs-10 col-sm-8")) ;?>
+                                            <?php echo "<div class=\"error_msg\">". form_error('contact_person_name') ."</div>"; ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Email</label>
                                         <div class="col-sm-9">
-                                            <input type="text" id="" value="<?php echo $school->contact_email; ?>" class="col-xs-10 col-sm-8">
+                                            <?php echo form_input('contact_person_email',set_value('contact_person_email',NULL)==NULL?$school->contact_email:set_value("contact_person_email"),array("class"=>"col-xs-10 col-sm-8")) ;?>
+                                            <?php echo "<div class=\"error_msg\">". form_error('contact_person_email') ."</div>"; ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Phone</label>
                                         <div class="col-sm-9">
-                                            <input type="text" value="<?php echo $school->contact_no; ?>" id=""  class="col-xs-10 col-sm-8">
+                                            <?php echo form_input('contact_person_phone',set_value('contact_person_phone',NULL)==NULL?$school->contact_no:set_value("contact_person_phone"),array("class"=>"col-xs-10 col-sm-8")) ;?>
+                                            <?php echo "<div class=\"error_msg\">". form_error('contact_person_phone') ."</div>"; ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"></label>
+                                        <div class="col-sm-9">
+                                            <button class="btn btn-info" type="submit" name="submit" value="submit">
+                                                <i class="ace-icon fa fa-check bigger-110"></i>
+                                                Update
+                                            </button>
                                         </div>
                                     </div>
 
+                                    <?php echo $this->session->error ?>
                                 </form>
+
+
                             </div>
                             <div id="profile3" class="tab-pane ">
                                 <div class="border_b">
@@ -169,7 +188,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             ($schoolAdmin->is_main_account==0) ? "No" : "Yes" ;
                                             echo "<td>".$isAdmin."</td>\n";
                                             echo "<td>".$isActivated."</td>\n";
-                                            echo "<td>Reset Password</td>\n";
+                                            echo "<td> <a href=\"#\" data-toggle=\"modal\" data-target=\"#myModal\">Reset Password</a></td>\n";
                                             echo "</tr>\n";
                                         }
                                     ?>
@@ -200,16 +219,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Please edit your Contact Details</h4>
+                <h4 class="modal-title">Reset password</h4>
             </div>
             <div class="modal-body">
                 <div>
-                    <label for="form-field-9">Contact Details</label>
-                    <textarea class="form-control limited" id="form-field-9" maxlength="100"></textarea>
+                    <label for="form-field-9">Please enter the new password</label>
+                    <?php echo form_password("password", "", array("class" => "form-control", "placeholder" => "New Password")); ?>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Reset</button>
             </div>
         </div>
     </div>
