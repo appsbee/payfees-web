@@ -38,6 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <label class="col-sm-3" for="form-field-1"> School Name</label>
                             <div class="col-sm-9">
                                 <?php echo form_input('school_name',set_value('school_name'),array("class"=>"form-control")) ;?>
+                                <p class="error_msg">The School name field is required.</p>
                             </div>
                         </div>
 
@@ -45,6 +46,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <label class="col-sm-3" for="form-field-1"> School Address</label>
                             <div class="col-sm-9">
                                 <?php echo form_textarea("address",set_value("address"),array("class"=>"form-control limited","maxlength"=>"100"));?>
+                                <p class="error_msg">The School name field is required.</p>
+                                
                             </div>
                         </div>
 

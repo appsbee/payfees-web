@@ -90,7 +90,7 @@ a:hover, a:focus{color:#393939; text-decoration: none!important;}
 .table_text tr td, .table_text tr th{text-align:center;}
 
 .session_part .chosen-container{width:100%!important;}
-
+.error_msg{color:#f00!important;}
 
 
 
