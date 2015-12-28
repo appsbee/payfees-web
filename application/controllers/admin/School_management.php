@@ -9,7 +9,6 @@ class School_management extends Base_Admin_Controller
             $this->_store();
         else
             $this->view_all();
-
     }
 
     //return create school view
@@ -23,8 +22,9 @@ class School_management extends Base_Admin_Controller
 
     public function view_all()
     {
-        $this->load->model("MSchool", 'school');
-        $schools = $this->school->all();
+        //$this->load->model("MSchool", 'school');
+        $school = new MSchool();        
+        $schools = $school->all();
 
         $this->data["script_js_list"] = array(base_url("assets/js/_admin_school_view_all.js"));
         $this->data['pageTitle'] = "PayFees - All School";
@@ -34,21 +34,21 @@ class School_management extends Base_Admin_Controller
         $this->_loadView("admin/school_management/view_all");
     }
 
-
+    //return edit school view
     public function edit($schoolId = NULL)
     {
         if ($schoolId == NULL) {
             redirect("admin/school-management/view_all");
             return;
         }
+    
+        $schoolModel = new MSchool();
+        $schoolAdminModel = new MSchoolAdmin();
 
-        //return edit school view
+        
 
-        $this->load->model("MSchool", "school");
-        $this->load->model("MSchoolAdmin", "schoolAdmin");
-
-        $school = $this->school->get($schoolId);
-        $schoolAdmins = $this->schoolAdmin->get($schoolId);
+        $school = $schoolModel->get($schoolId);
+        $schoolAdmins = $schoolAdminModel->get($schoolId);
 
         $this->data['school'] = $school;
         $this->data['schoolAdmins'] = $schoolAdmins;
@@ -90,8 +90,9 @@ class School_management extends Base_Admin_Controller
             $schoolAdminEmail = $this->input->post("school_admin_email", TRUE);
             $schoolAdminPassword = $this->input->post("school_admin_password", TRUE);
             $schoolAdminPhone = $this->input->post("school_admin_phone", TRUE);
-
-            $this->load->model("MSchool", "school");
+            
+            //MSchool school = new MSchool();
+            $this->load->model("MSchool", 'school');
 
             $school_id = $this->school->create($schoolName, $details, $address, $sessionStart, $sessionEnd, $contactPerson, $contactEmail, $contactPhone);
 
@@ -136,6 +137,7 @@ class School_management extends Base_Admin_Controller
                 $contentValue['contact_no'] = $this->input->post("contact_person_phone", TRUE);
 
                 $this->load->model("MSchool", "school");
+
                 $previousName = $this->school->get($schoolId)->school_name;
 
                 if ($this->school->update($schoolId, $contentValue) == 1) {

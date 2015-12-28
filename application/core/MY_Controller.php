@@ -7,8 +7,8 @@ class MY_Controller extends CI_Controller
     {
         parent::__construct();
     }
-
 }
+
 class Base_Admin_Controller extends MY_Controller{
     protected $data;
 

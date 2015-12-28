@@ -1,6 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+define('EXT','.php');
+function __autoload($class) {
 
+    if (file_exists(APPPATH."models/".$class.EXT)) {        
+        $CI =& get_instance();		
+		$CI->load->model($class);
+    }
+}
 /*
 |--------------------------------------------------------------------------
 | Base Site URL

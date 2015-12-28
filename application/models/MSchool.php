@@ -1,9 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class MSchool extends CI_Model
-{
-    private $tableName = 'schools';
+class MSchool extends CI_Model{
+    public $table_name = 'schools';
 
     public function  create($schoolName, $schoolDetails, $schoolAddress, $sessionStart, $sessionEnd, $contactPerson, $contactEmail, $contactNo)
     {
@@ -17,23 +16,24 @@ class MSchool extends CI_Model
             'contact_person' => $contactPerson,
             'contact_no' => $contactNo
         );
-        $this->db->insert($this->tableName, $data);
+        $this->db->insert($this->table_name, $data);
         return $this->db->insert_id();
     }
 
-    public function update($schoolId,$contentValue){
-        $this->db->update($this->tableName, $contentValue, "id = $schoolId");
+    public function update($schoolId, $contentValue)
+    {
+        $this->db->update($this->table_name, $contentValue, "id = $schoolId");
         return $this->db->affected_rows();
     }
 
     public function all()
     {
-        return $this->db->get($this->tableName)->result();
+        return $this->db->get($this->table_name)->result();
     }
 
     public function get($schoolId)
     {
-        return $this->db->get_where($this->tableName,array('id'=>$schoolId),1)->row();
+        return $this->db->get_where($this->table_name, array('id' => $schoolId), 1)->row();
     }
 
 
