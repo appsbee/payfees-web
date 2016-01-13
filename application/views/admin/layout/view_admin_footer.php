@@ -34,8 +34,7 @@
 <!-- basic scripts -->
 
 <!--[if !IE]> -->
-<script src="<?php echo base_url("assets/js/jquery.2.1.1.min.js");?>"></script>
-
+<script src="<?php //echo base_url("assets/js/jquery.2.1.1.min.js");?>"></script>
 <!-- <![endif]-->
 
 <!--[if IE]>
@@ -46,6 +45,9 @@
 <script type="text/javascript">
     window.jQuery || document.write("<script src='<?php echo base_url("assets/js/jquery.min.js")?>'>"+"<"+"/script>");
 </script>
+
+
+
 
 <!-- <![endif]-->
 
@@ -87,6 +89,7 @@
 <script src="<?php echo base_url("assets/js/bootstrap-tag.min.js");?>"></script>
 
 
+  
 
 <script>
 

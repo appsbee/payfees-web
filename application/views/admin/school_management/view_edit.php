@@ -195,10 +195,165 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </tbody>
                                 </table>
                             </div>
+<!-- ===================================================MoDAL================== -->
+<style>
+#dialog{
+    width:500px !important;
+}
+</style>
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script>
+$(function() {
+    $( "#dialog" ).dialog({
+      autoOpen: false,
+      show: {
+        duration: 200
+      },
+      hide: {
+        duration: 200
+      }
+    });
+ 
+    $( "#opener" ).click(function() {
+      $( "#dialog" ).dialog( "open" );
+    });
+    $(".smtp").click(function(em){
+        em.preventDefault();
+        $("#dialog" ).dialog( "close" );
+    });
+    $(document).on('click','.add_row',function(k){
+        k.preventDefault();
+        $('.gtg').before('<tr ><td>Tution Fees</td><td>9300</td><td>10200</td><td>10500</td> <td>1000</td> <td>12000</td> <td>9300</td> <td>10200</td> <td>10500</td> <td>1000</td> <td>12000</td> <td>9300</td> <td>10200</td> </tr>'); 
+    });
+    $(document).on('click','.del_row',function(dls){
+        dls.preventDefault();
+        $(this).parent().hide();
+    });
+    
+  });
+
+</script>
+
+
+    
+ <div id="dialog" title="Enter Fees">
+    <div class="col-xs-12">
+     <form class="form-horizontal" role="form">
+      <div class="form-group">
+            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Fees Type</label>
+                 <div class="col-sm-9">
+                     <input type="text" id="form-field-1" placeholder="Fees type" class="col-xs-10 col-sm-5">
+                     </div>
+                 </div>
+           <input type="submit" value="Submit" name="sbmt" class="btn btn-info smtp"/>
+     </form>
+    </div>
+ </div>
+
+
+
+
+    
+
+<!-- ===============================================End Modal================== -->
+
+
+
                             <div id="dropdown13" class="tab-pane">
                                 <div class="border_b">
                                     <h4>Fees Management</h4>
                                     <p>Manage your personal details, contact information, language, country and timezone settings.</p>
+                                    <div class="col-xs-12 top_gap">
+<form>
+<div class="col-sm-6">
+<div class="form-group">
+<!-- <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Monthly Fees</label>
+<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5"> -->
+</div>
+
+
+
+
+</div>
+
+<div class="col-sm-6">
+<button type="button" class="btn btn-sm btn-success pull-right add_fees" id="opener" >
+Add Fee Type
+</button>
+</div>
+</form>
+<div class="clearfix"></div>
+
+
+
+
+
+
+
+
+
+
+<div class="col-xs-12 top_gap">
+<a href="#" class="add_row">Add A Row</a>
+<table id="simple-table" class="table table-striped table-bordered table-hover">
+<thead >
+<tr>
+<th>Fee Type</th>
+<th>Class I</th>
+<th>Class II</th>
+<th>Class III</th>
+<th>Class IV</th>
+<th>Class V</th>
+<th>Class VI</th>
+<th>Class VII</th>
+<th>Class VIII</th>
+<th>Class IX</th>
+<th>Class X</th>
+<th>Class XI</th>
+<th>Class XII</th>
+</tr>
+</thead>
+
+<tbody class="place_row">
+
+
+
+<tr class="gtg">
+<td>Grand Total</td>
+<td>---</td>
+<td>--</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+</tr>
+
+
+
+
+
+</tbody>
+</table>
+
+ 
+                                    
+                                        
+</div>
+
+
+
+
+
+
+</div>
                                 </div>
                             </div>
                         </div>
@@ -233,4 +388,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
 </div>
+
+
 
