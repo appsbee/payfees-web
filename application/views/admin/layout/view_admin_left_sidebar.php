@@ -81,8 +81,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                         <b class="arrow"></b>
                     </li>
 
-
+            
                 </ul>
+                <ul class="nav nav-list">
+      <li class="active"> <a href="index.html"> <i class="menu-icon fa fa-tachometer"></i> <span class="menu-text">Fees Management</span> </a> <b class="arrow"></b> </li>
+      <li class=""> <a href="#" class="dropdown-toggle"> <i class="menu-icon fa fa-desktop"></i> <span class="menu-text"> Fees Management </span> <b class="arrow fa fa-angle-down"></b> </a> <b class="arrow"></b>
+        <ul class="submenu">
+          <li class=""> <a href="#" class="dropdown-toggle"> <i class="menu-icon fa fa-caret-right"></i> Payment <b class="arrow fa fa-angle-down"></b> </a> <b class="arrow"></b>
+            <ul class="submenu">
+              <li class=""> <a href="by_app.html"> <i class="menu-icon fa fa-caret-right"></i> By App </a> <b class="arrow"></b> </li>
+              <li class=""> <a href="by_cash.html"> <i class="menu-icon fa fa-caret-right"></i> By Cash </a> <b class="arrow"></b> </li>
+            </ul>
+          </li>
+          <li class=""> <a href="#"  class="dropdown-toggle"> <i class="menu-icon fa fa-caret-right"></i> Fee Setting <b class="arrow fa fa-angle-down"></b> </a> <b class="arrow"></b>
+            <ul class="submenu">
+              <li class=""> <a href="<?php echo site_url('admin/Addfee/addfee')?>"> <i class="menu-icon fa fa-caret-right"></i> Add Fee </a> <b class="arrow"></b> </li>
+              <li class=""> <a href="<?php echo site_url('admin/Addfee/transportfee')?>"> <i class="menu-icon fa fa-caret-right"></i> Transport Fee </a> <b class="arrow"></b> </li>
+              <li class=""> <a href="edit_fees_setting.html"> <i class="menu-icon fa fa-caret-right"></i> Edit Fee </a> <b class="arrow"></b> </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class=""> <a href="#" class="dropdown-toggle"> <i class="menu-icon fa fa-pencil-square-o"></i> <span class="menu-text"> Student Management </span> <b class="arrow fa fa-angle-down"></b> </a> <b class="arrow"></b>
+        <ul class="submenu">
+          <li class=""> <a href="upload_student.html"> <i class="menu-icon fa fa-caret-right"></i>Upload Student <b class="arrow fa fa-angle-down"></b> </a> <b class="arrow"></b>
+            <!--<ul class="submenu">
+              <li class=""> <a href="#"> <i class="menu-icon fa fa-caret-right"></i> By App </a> <b class="arrow"></b> </li>
+              <li class=""> <a href="#"> <i class="menu-icon fa fa-caret-right"></i> By Bank </a> <b class="arrow"></b> </li>
+              <li class=""> <a href="#"> <i class="menu-icon fa fa-caret-right"></i> By Cash </a> <b class="arrow"></b> </li>
+            </ul>-->
+          </li>
+          <li class=""> <a href="student_details.html"> <i class="menu-icon fa fa-caret-right"></i> View Student <b class="arrow fa fa-angle-down"></b> </a> <b class="arrow"></b>
+            <!--<ul class="submenu">
+              <li class=""> <a href="#"> <i class="menu-icon fa fa-caret-right"></i> 2000 </a> <b class="arrow"></b> </li>
+              <li class=""> <a href="#"> <i class="menu-icon fa fa-caret-right"></i> 50000 </a> <b class="arrow"></b> </li>
+            </ul>-->
+          </li>
+        </ul>
             </li>
 
 

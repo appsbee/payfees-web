@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class MSchool extends CI_Model{
     public $table_name = 'schools';
 
-    public function  create($schoolName, $schoolDetails, $schoolAddress, $sessionStart, $sessionEnd, $contactPerson, $contactEmail, $contactNo)
+    public function  create($schoolName, $schoolDetails, $schoolAddress, $sessionStart, $sessionEnd, $contactPerson, $contactEmail, $contactNo,$img_logo,$img)
     {
         $data = array(
             'school_name' => $schoolName,
@@ -14,7 +14,9 @@ class MSchool extends CI_Model{
             'session_end' => $sessionEnd,
             'contact_email' => $contactEmail,
             'contact_person' => $contactPerson,
-            'contact_no' => $contactNo
+            'contact_no' => $contactNo,
+            'school_logo'=> $img_logo,
+            'school_img'=> $img
         );
         $this->db->insert($this->table_name, $data);
         return $this->db->insert_id();

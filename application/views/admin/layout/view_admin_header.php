@@ -31,7 +31,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!--[if lte IE 9]>
     <link rel="stylesheet" href="<?php echo base_url("assets/css/ace-ie.min.css");?>" />
     <![endif]-->
-
+    
+    <link rel="stylesheet" href="<?php echo base_url("assets/css/mystyle.css");?>" />
+    
     <?php
     if(isset($styleSheet)){
         foreach($styleSheet as $style){
@@ -54,3 +56,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <![endif]-->
 </head>
 <body class="no-skin">
+</body>
+</html>

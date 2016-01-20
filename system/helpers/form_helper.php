@@ -276,6 +276,8 @@ if ( ! function_exists('form_textarea'))
 			'name' => is_array($data) ? '' : $data,
 			'cols' => '40',
 			'rows' => '10'
+            //'cols' => '40',
+			//'rows' => '2'
 		);
 
 		if ( ! is_array($data) OR ! isset($data['value']))
