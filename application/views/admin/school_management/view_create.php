@@ -2,41 +2,66 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
-
-<div class="main-content">
-    <div class="main-content-inner">
-        <div class="widget-main seach_part breadcrumbs">
-            <form class="form-search">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-10 no_mar">
-                        <div class="input-group">
-
-                            <input type="text" class="form-control search-query" placeholder="Type your query"/>
-                                                                <span class="input-group-btn">
-                                                                    <button type="button" class="btn btn-purple btn-sm">
-                                                                        <span
-                                                                            class="ace-icon fa fa-search icon-on-right bigger-110"></span>
-                                                                        Search
-                                                                    </button>
-                                                                </span>
-                        </div>
-                    </div>
-                </div>
-            </form>
+ <!-- START CONTENT -->
+      <section id="content">
+        
+        <!--breadcrumbs start-->
+        <div id="breadcrumbs-wrapper" class=" grey lighten-3">
+            <!-- Search for small screen -->
+            <div class="header-search-wrapper grey hide-on-large-only">
+                <i class="mdi-action-search active"></i>
+                <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize">
+            </div>
+            <span><?php //echo $this->session->success; ?></span>
+          <div class="container">
+            <div class="row">
+              <div class="col s12 m12 l12">
+                <h5 class="breadcrumbs-title">Create School</h5>
+                <ol class="breadcrumb">
+                    <li><a href="index.html">School Management</a></li>
+                    <li><a href="#">Create School</a></li>
+                   <!-- <li class="active">Blank Page</li> -->
+                </ol>
+              </div>
+            </div>
+          </div>
         </div>
+        <!--breadcrumbs end-->
+        
+        
+        
+        
+         <div >
+			<p style="color:green;margin-top:16px; font-size:15px;" align="center"><strong><?php echo $this->session->success; ?></strong></p>
+		</div>
+        
+        
 
-        <div class="page-content">
-
+        <!--start container-->
+        <div class="container">
+          <div class="section">
 <div class="row">
-       
-          <div class="col-xs-6">
-            <div class="col-xs-10 ">
-            <span><?php echo $this->session->success; ?></span>
-            <h3 class="header smaller lighter blue">Create School</h3>
-            <!-- PAGE CONTENT BEGINS -->
-            
-             <?php echo form_open_multipart("admin/school-management/",array("class"=>"form-horizontal","role"=>"form")); ?>
-             <div>
+           <!--   	<div class="col s12 m4 l4">
+                
+          <div class="input-field col s12">
+          <i class="mdi-action-search prefix"></i>
+          <input id="icon_prefix" type="text" class="validate">
+          <label for="icon_prefix">Type your query</label>
+        </div>
+                </div> -->
+                
+                
+                
+                
+                
+              </div>
+
+           <div class="divider"></div>
+            <!--Basic Form-->
+            <div id="basic-form" class="section">
+              <div class="row">
+              <?php echo form_open_multipart("admin/school-management/",array("class"=>"form-horizontal","role"=>"form")); ?>
+              <div>
              <?php if($this->session->flashdata('errorlogo')!=''){?>	
 									<div >
 						<p style="color:red;font-style: italic;margin-top:16px; font-size:10px;" align="center"><strong><?php echo $this->session->flashdata('errorlogo'); ?></strong></p>
@@ -49,185 +74,221 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<?php } ?>
              
              </div>
-              <div class="form-group">
-                <label class="" for="form-field-1"> School Name</label>
-                  <?php echo form_input('school_name',set_value('school_name'),array("class"=>"form-control")) ;?>
+                <div class="col s12 m12 l6">
+                  <div class="card-panel">
+                    <h4 class="header2">Create School</h4>
+                    <div class="row">
+                      
+                        <div class="row">
+                          <div class="input-field col s12">
+                          <?php echo form_input('school_name',set_value('school_name'),array("class"=>"form-control")) ;?>
                   <?php echo "<div class=\"error_msg\">". form_error('school_name') ."</div>"; ?>
-              </div> 
-              <div class="form-group">
-                <label class="" for="form-field-1"> School Address</label>
-               <textarea name="address" class="form-control limited;" maxlength="255;" ><?php echo set_value("address");?></textarea>
-          
-              <?php //echo form_textarea("address",set_value("address"),array("class"=>"form-control limited","maxlength"=>"255")); ?>
-                  
-                  <?php echo "<div class=\"error_msg\">". form_error('address') ."</div>"; ?>
-
-              </div>
-              <div class="form-group">
-                <label class="" for="form-field-1"> School Details</label>
-                <textarea name="details" class="form-control limited;" maxlength="255;" ><?php echo set_value("details");?></textarea>
-
-                  <?php //echo form_textarea("details",set_value("details"),array("class"=>"form-control limited")); ?>
-                  <?php echo "<div class=\"error_msg\">". form_error('details') ."</div>"; ?>
-              </div>
-              
-               
-              
-              <div class="form-group">
-              <div class="col-sm-7 no-padding-left">
-                <label class="col-sm-7 no-padding-left" for="form-field-1"> School Session From</label>
-                            <div class="col-sm-5">
-                                <div class="form-group">
-                                    
-                                        <select name="session_start" class="form-control">
-                                            <option value="0">Jan</option>
-                                            <option value="1">Feb</option>
-                                            <option value="2">March</option>
-                                            <option  value="3">April</option>
-                                            <option value="4">May</option>
-                                            <option  value="5">June</option>
-                                            <option value="6">July</option>
-                                            <option value="7">Aug</option>
-                                            <option value="8">Sept</option>
-                                            <option value="9">Oct</option>
-                                            <option value="10">Nov</option>
-                                            <option value="11">Dec</option>
-                                        </select>
-                                   
-                                </div>
-                                
-
-                            </div>
-                            </div> 
-                            <div class="col-sm-2" style="text-align: center;">
-                                    <label>To</label>
-                                </div>
-                            <div class="col-sm-3">
+                            <label for="first_name">School Name</label>
+                          </div>
+                        </div>
+                        <div class="row">
+                        
+                        
+                        <div class="row">
+                          <div class="input-field col s12">
+                          <?php echo form_input('address',set_value('address'),array("class"=>"form-control")) ;?>
                             
-                                
-                                    <div class="form-group">
-                                        <select name="session_end" class="form-control">
-                                            <option value="0">Jan</option>
-                                            <option value="1">Feb</option>
-                                            <option value="2">March</option>
-                                            <option  value="3">April</option>
-                                            <option value="4">May</option>
-                                            <option  value="5">June</option>
-                                            <option value="6">July</option>
-                                            <option value="7">Aug</option>
-                                            <option value="8">Sept</option>
-                                            <option value="9">Oct</option>
-                                            <option value="10">Nov</option>
-                                            <option value="11">Dec</option>
-                                        </select>
-                                    </div>
-                                </div>
+                            <?php echo "<div class=\"error_msg\">". form_error('address') ."</div>"; ?>
+                            <label for="first_name">School Address</label>
+                          </div>
+                          
+                          
+                           <div class="input-field col s12">
+                          <?php echo form_input('city',set_value('city'),array("class"=>"form-control")) ;?>
                             
-              </div>
-              
-             <div class="col-sm-5 no-padding-left">
-               <div class="form-group">
-                <label class="" for="form-field-1"> School Logo</label>
-                   <span class="btn btn-warning btn-file col-lg-11">Upload Logo
-              <input type="file" name="school_logo" onchange="mylogoFunction()" id="schoollogo"/>
-              
-              </span>
-              
-              </div>
-              <p id="logoname" style="word-wrap: break-word;"></p>
-              </div>
-              
-                <div class="col-sm-5 no-padding-right no-margin" style="float:right; margin-right: -15px!important;">
-               <div class="form-group">
-                <label class="" for="form-field-1">Upload Image</label>
-                  <span class="btn btn-warning btn-file col-lg-11"> Upload Image
-              <input type="file" name="school_img" onchange="myimgFunction()" id="schoolimg"/>
-              </span>
-             
-              </div>
-              <p id="imgname" style="word-wrap: break-word;"></p>
-              </div>
-              <div class="clearfix"></div>
-              
-            
-           
-            <!-- PAGE CONTENT ENDS -->
-            </div>
-          </div>
-          
-          <div class="col-xs-6 pull-right">
-            <div class="col-xs-10">
-            <h3 class="header smaller lighter blue">Primary School Admin</h3>
-            
-             <div class="form-group">
-                <label class="" for="">Contact Person Name</label>
-                <!--<input type="text" class="form-control" id="school_admin_name" name="school_admin_name"  value=""/>  -->
-                <?php echo form_input('school_admin_name',set_value('school_admin_name'),array("class"=>"form-control")) ;?>
+                            <?php echo "<div class=\"error_msg\">". form_error('city') ."</div>"; ?>
+                            <label for="first_name">City</label>
+                          </div>
+                          
+                          <div class="input-field col s12">
+                          <?php echo form_input('state',set_value('state'),array("class"=>"form-control")) ;?>
+                            
+                            <?php echo "<div class=\"error_msg\">". form_error('state') ."</div>"; ?>
+                            <label for="first_name">State</label>
+                          </div>
+                          <div class="input-field col s12">
+                          <?php echo form_input('zip',set_value('zip'),array("class"=>"form-control")) ;?>
+                            
+                            <?php echo "<div class=\"error_msg\">". form_error('zip') ."</div>"; ?>
+                            <label for="first_name">Pincode</label>
+                          </div>
+                        </div>
+                        <!--
+                          <div class="input-field col s12">
+                            <textarea id="Address" name="address" class="materialize-textarea" maxlength="255;"><?php //echo set_value("address");?></textarea>
+                             <?php// echo "<div class=\"error_msg\">". form_error('address') ."</div>"; ?>
+                            <label for="message">School Address</label>
+                          </div
+                          <div class="input-field col s12">
+                          
+                            <textarea id="Details" name="details" class="materialize-textarea" maxlength="255;"><?php //echo set_value("details");?></textarea>
+                            <?php //echo "<div class=\"error_msg\">". form_error('details') ."</div>"; ?>
+                            <label for="message">School Details</label>
+                          </div>
+                          >-->
+                          
+                      <div class="input-field col s12 l6">
+                        <select name="session_start" >
+                        <option value="" disabled selected>School Session From</option>
+                                            <option value="1">Jan</option>
+                                            <option value="2">Feb</option>
+                                            <option value="3">March</option>
+                                            <option  value="4">April</option>
+                                            <option value="5">May</option>
+                                            <option  value="6">June</option>
+                                            <option value="7">July</option>
+                                            <option value="8">Aug</option>
+                                            <option value="9">Sept</option>
+                                            <option value="10">Oct</option>
+                                            <option value="11">Nov</option>
+                                            <option value="12">Dec</option>
+                                        </select>
+                          
+                        <label>Select </label>
+                      </div>  
+                      <div class="input-field col s12 l6">
+                        <select name="session_end" >
+                         <option value="" disabled selected>To</option>
+                                            <option value="1">Jan</option>
+                                            <option value="2">Feb</option>
+                                            <option value="3">March</option>
+                                            <option  value="4">April</option>
+                                            <option value="5">May</option>
+                                            <option  value="6">June</option>
+                                            <option value="7">July</option>
+                                            <option value="8">Aug</option>
+                                            <option value="9">Sept</option>
+                                            <option value="10">Oct</option>
+                                            <option value="11">Nov</option>
+                                            <option value="12">Dec</option>
+                                        </select>
+                        <label>Select </label>
+                      </div> 
+                      
+                      <div class="col s12 m12 l12">
+                          <div class="file-field input-field col s12 l6">
+                                  <input class="file-path validate" type="text"/>
+                                    <div class="btn waves-light">
+                                    <span> <i class="mdi-editor-publish"></i>   School Logo</span>
+                                        <input type="file" name="school_logo" onchange="mylogoFunction()" id="schoollogo" />
+                                        </div>
+                                         <p id="logoname" style="word-wrap: break-word;"></p>
+                                </div>
+                          <div class="file-field input-field col s12 l6">
+                                  <input class="file-path validate" type="text"/>
+                                    <div class="btn waves-light">
+                                    <span><i class="mdi-editor-publish"></i>  School Image</span>
+                                        <input type="file" name="school_img" onchange="myimgFunction()" id="schoolimg"/>
+                                        </div>
+                                         <p id="imgname" style="word-wrap: break-word;"></p>
+                                </div>
+                      </div>          
+                         
+                        
+                            <div style="clear:both"></div> 
+                       
+                        </div>
+                     
+                    </div>
+                  </div>
+                </div>
+                <!-- Form with placeholder -->
+                <div class="col s12 m12 l6">
+                  <div class="card-panel">
+                    <h4 class="header2">Primary School Admin</h4>
+                    <div class="row">
+                   
+                        <div class="row">
+                          <div class="input-field col s12">
+                        <?php echo form_input('school_admin_name',set_value('school_admin_name'),array("id"=>"PersonName")) ;?>
                 <?php echo "<div class=\"error_msg\">". form_error('school_admin_name') ."</div>"; ?>
-
-              </div>
-              <div class="form-group">
-                <label class="" for="">Contact Person Phone</label>
-                 <?php echo form_input('school_admin_phone',set_value('school_admin_phone'),array("class"=>"form-control")) ;?>
+                            
+                            <label for="first_name">Contact Person Name</label>
+                          </div>
+                        </div>
+                        
+                        <div class="row">
+                          <div class="input-field col s12">
+                            
+                             <?php echo form_input('school_admin_phone',set_value('school_admin_phone'),array("id"=>"Phone")) ;?>
                   <?php echo "<div class=\"error_msg\">". form_error('school_admin_phone') ."</div>"; ?>
 
-              </div>
-              <div class="form-group">
-                <label class="" for="">Contact Person Email</label>
-                 <?php echo form_input('school_admin_email',set_value('school_admin_email'),array("class"=>"form-control","id"=>"sadminemail")) ;?>
+                            <label for="first_name">Contact Person Phone</label>
+                          </div>
+                        </div>
+                        
+                        <div class="row">
+                          <div class="input-field col s12">
+                            
+                           <?php echo form_input('school_admin_email',set_value('school_admin_email'),array("id"=>"sadminemail")) ;?>
                 <?php echo "<div class=\"error_msg\">". form_error('school_admin_email') ."</div>"; ?>
-              </div>
-              
-              
-              
-             <!-- <div class="form-group">
-                <label class="" for="">User Name</label> 
-              
-                  <input type="text" id="" class="form-control">
-              
-              </div>
-              <div class="form-group">
-                <label class="" for="">Email</label>
-            
-                  <input type="text" id="" class="form-control">
-              </div>-->
-              <div class="form-group">
-                <label class="" for="">Password</label>
-               <?php echo form_password('school_admin_password',set_value('school_admin_password'),array("class"=>"form-control")) ;?>
+
+                            <label for="first_name">Contact Person Email</label>
+                          </div>
+                        </div>
+                        
+                        <div class="row">
+                          <div class="input-field col s12">
+                           
+                            
+                          <?php echo form_password('school_admin_password',set_value('school_admin_password'),array()) ;?>
                 <?php echo "<div class=\"error_msg\">". form_error('school_admin_password') ."</div>"; ?>
 
+                            
+                            
+                            <label for="first_name">Password</label>
+                          </div>
+                        </div>
+                        
+                        <div class="row">
+                          <div class="row">
+                            <div class="input-field col s12">
+                             <button class="btn cyan waves-effect waves-light right" type="submit" name="submit" onclick="myValidation()" value="submit">Submit
+                            
+             <i class="mdi-content-send right"></i>
+                               
+                              
+                              
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      
+                    </div>
+                  </div>
+                </div>
               </div>
-              <!--<div class="form-group">
-                <label class="" for="">Contact Number</label>
-             
-                  <input type="text" id="" class="form-control">
-                   
-              </div>  -->
-              <button class="btn btn-info pull-right" type="submit" name="submit" onclick="myValidation()" value="submit">
-                            <i class="ace-icon fa fa-check bigger-110"></i>
-                            Submit
-                        </button>              </div>
-          </div>
-          
-          
-          
-          
-           <?php echo $this->session->error ?>
+              
+              
+              <?php echo $this->session->error ?>
             <?php echo form_close()?>
-          
-          
-          
-          
-          <!-- /.col -->
+            </div>
+          </div>
+          <!-- Floating Action Button -->
+            <!-- <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+                <a class="btn-floating btn-large red">
+                  <i class="large mdi-editor-mode-edit"></i>
+                </a>
+                <ul>
+                  <li><a href="css-helpers.html" class="btn-floating red"><i class="large mdi-communication-live-help"></i></a></li>
+                  <li><a href="app-widget.html" class="btn-floating yellow darken-1"><i class="large mdi-device-now-widgets"></i></a></li>
+                  <li><a href="app-calendar.html" class="btn-floating green"><i class="large mdi-editor-insert-invitation"></i></a></li>
+                  <li><a href="app-email.html" class="btn-floating blue"><i class="large mdi-communication-email"></i></a></li>
+                </ul>
+            </div> -->
+            <!-- Floating Action Button -->
         </div>
-            <!-- /.row -->
-            </div><!-- /.page-content -->
-        </div>
-    </div><!-- /.main-content -->
-    <div class="clearfix"></div>
-</div>
-
-
+        <!--end container-->
+      </section>
+      <!-- END CONTENT -->
+      
+      
+      
 <script src="<?php echo base_url()?>js/jquery.js"></script>
 
 <script>

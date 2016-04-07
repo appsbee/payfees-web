@@ -5,21 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="main-content-inner">
         <div class="widget-main seach_part breadcrumbs">
             <form class="form-search">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-10 no_mar">
-                        <div class="input-group">
-
-                            <input type="text" class="form-control search-query" placeholder="Type your query"/>
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-purple btn-sm">
-                                        <span
-                                            class="ace-icon fa fa-search icon-on-right bigger-110"></span>
-                                        Search
-                                    </button>
-                                </span>
-                        </div>
-                    </div>
-                </div>
+                
             </form>
         </div>
 
@@ -27,50 +13,80 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
             <div class="row">
-                <div class="col-xs-12">
+                <div class="col s12 m12 l12">
+              
+                
+                
+                
                     <!-- PAGE CONTENT BEGINS -->
-                    <div class="tabbable tabs-left ">
-                        <ul class="nav nav-tabs tab_width" id="myTab3">
-                            <li class="active"> <a data-toggle="tab" href="#home3" aria-expanded="true"> School Information </a> </li>
-                            <li class=""> <a data-toggle="tab" href="#profile3" aria-expanded="false"> User Settings </a> </li>
-                            <li class=""> <a data-toggle="tab" href="#dropdown13" aria-expanded="false"> Fees Management </a> </li>
-                        </ul>
-                        <div class="tab-content">
-                            <div id="home3" class="tab-pane active">
-                                <div class="border_b">
-                                    <h4>School Information</h4>
-                                    <p>Manage the school details.</p>
-                                </div>
+                    <center><h4>School Information</h4>
+                    <p>Manage the school details.</p></center>
+                    
+                  <div class="card-panel">
+                  <div class="">
+                  <p style="color: red;"><?php  echo $this->session->error ?></p>
+                  </div>
+                  <div id="home3" class="tab-pane active">
+                                
                                 <?php echo form_open("admin/school-management/update/".$school->id,array("class"=>"form-horizontal","role"=>"form")); ?>
                                 <form class="form-horizontal f_top" role="form">
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> School Name</label>
-                                        <div class="col-sm-9">
-                                            <?php echo form_input('school_name',set_value('school_name',NULL)==NULL ?$school->school_name :set_value('school_name') ,array("class"=>"form-control","placeholder"=>"School Name","class"=>"col-xs-10 col-sm-8")) ;?>
-                                            <?php echo "<div class=\"error_msg\">". form_error('school_name') ."</div>"; ?>
-                                        </div>
+                                
+                                <div class="col s12 m12 l6">
+                                    <div class="input-field col s12">
+                                       
+       <div class="input-field col s12">
+                          <?php echo form_input('school_name',set_value('school_name',NULL)==NULL ?$school->school_name :set_value('school_name'),array("class"=>"form-control")) ;?>
+                  <?php echo "<div class=\"error_msg\">". form_error('school_name') ."</div>"; ?>
+                            <label for="first_name">School Name</label>
+                          </div>             
+                                       
+                                       <div class="input-field col s12">
+                          <?php echo form_input('address',set_value('address',NULL)==NULL ?$school->address :set_value('address'),array("class"=>"form-control")) ;?>
+                            
+                            <?php echo "<div class=\"error_msg\">". form_error('address') ."</div>"; ?>
+                            <label for="first_name">School Address</label>
+                          </div>
+                                        
+                          <div class="input-field col s12">
+                          <?php echo form_input('city',set_value('city',NULL)==NULL ?$school->city :set_value('city'),array("class"=>"form-control")) ;?>
+                  <?php echo "<div class=\"error_msg\">". form_error('city') ."</div>"; ?>
+                            <label for="first_name">City</label>
+                          </div>  
+                            <div class="input-field col s12">
+                          <?php echo form_input('state',set_value('state',NULL)==NULL ?$school->state :set_value('state'),array("class"=>"form-control")) ;?>
+                  <?php echo "<div class=\"error_msg\">". form_error('state') ."</div>"; ?>
+                            <label for="first_name">State</label>
+                          </div>  
+                            <div class="input-field col s12">
+                          <?php echo form_input('zip',set_value('zip',NULL)==NULL ?$school->zip :set_value('zip'),array("class"=>"form-control")) ;?>
+                  <?php echo "<div class=\"error_msg\">". form_error('zip') ."</div>"; ?>
+                            <label for="first_name">Pincode</label>
+                          </div>                  
+                                        
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> School Address</label>
-                                        <div class="col-sm-9">
-                                            <?php echo form_textarea("address",set_value("address",NULL)==NULL? $school->address :set_value("address") ,array("class"=>"col-xs-10 col-sm-8", "id"=>"form-field-9", "placeholder"=>"School Address","maxlength"=>"255"));?>
-                                            <?php echo "<div class=\"error_msg\">". form_error('address') ."</div>"; ?>
-                                        </div>
+                                    
+                                   
+                                      <!--
+          <div class="input-field col s12">
+                            <textarea id="Address" name="address" class="materialize-textarea" maxlength="255;"><?php //echo set_value("address",NULL)==NULL? $school->address :set_value("address");?></textarea>
+                             <?php //echo "<div class=\"error_msg\">". form_error('address') ."</div>"; ?>
+                            <label for="message">School Address</label>    
+                                                        
+                                      
+                                    </div> 
+                                  
+                                
+                                <div class="input-field col s12">
+                                
+                                
+<textarea id="Details" name="details" class="materialize-textarea" maxlength="255;"><?php //echo set_value("details",NULL)==NULL? $school->school_details :set_value("details");?></textarea>
+                             <?php //echo "<div class=\"error_msg\">". form_error('details') ."</div>"; ?>
+                            <label for="message">School Details</label>              
+                                
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> School Details</label>
-                                        <div class="col-sm-9">
-                                            <?php echo form_textarea("details",set_value("details",NULL)==NULL? $school->school_details :set_value("details") ,array("class"=>"col-xs-10 col-sm-8", "id"=>"form-field-9", "placeholder"=>"School Details"));?>
-                                            <?php echo "<div class=\"error_msg\">". form_error('address') ."</div>"; ?>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Session</label>
-                                        <div class="col-sm-6">
-                                        <div class="col-sm-5 session_part">
-
-                                                <select class="chosen-select form-control" id="" name="session_start" >
+                                    -->
+                                    <div class="input-field col s12 l6">
+                             <select class="chosen-select form-control" id="" name="session_start" >
                                                     <option value="0" <?php if($school->session_start==0) echo " selected=\"selected\""; ?> >Jan</option>
                                                     <option value="1" <?php if($school->session_start==1) echo " selected=\"selected\""; ?>>Feb</option>
                                                     <option value="2" <?php if($school->session_start==2) echo " selected=\"selected\""; ?>>March</option>
@@ -84,14 +100,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <option value="10" <?php if($school->session_start==10) echo " selected=\"selected\""; ?>>Nov</option>
                                                     <option value="11" <?php if($school->session_start==11) echo " selected=\"selected\""; ?>>Dec</option>
                                                 </select>
-
-                                        </div>
-                                        <div class="col-sm-2" style="text-align: center; padding-top: 3px;">
-                                            <label>To</label>
-                                        </div>
-                                        <div class="col-sm-5 session_part">
-
-                                                <select class="chosen-select form-control" id="" name="session_end">
+                            <label>From </label>
+                          </div>  
+                          <div class="input-field col s12 l6">
+                            <select class="chosen-select form-control" id="" name="session_end">
                                                     <option value="0" <?php if($school->session_end==0) echo " selected=\"selected\""; ?>>Jan</option>
                                                     <option value="1" <?php if($school->session_end==1) echo " selected=\"selected\""; ?>>Feb</option>
                                                     <option value="2" <?php if($school->session_end==2) echo " selected=\"selected\""; ?>>March</option>
@@ -105,34 +117,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <option value="10" <?php if($school->session_end==10) echo " selected=\"selected\""; ?>>Nov</option>
                                                     <option value="11" <?php if($school->session_end==11) echo " selected=\"selected\""; ?>>Dec</option>
                                                 </select>
-
-                                        </div>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Contact Person Name</label>
-                                        <div class="col-sm-9">
-                                            <?php echo form_input('contact_person_name',set_value('contact_person_name',NULL)==NULL?$school->contact_person:set_value("contact_person_name"),array("class"=>"col-xs-10 col-sm-8")) ;?>
-                                            <?php echo "<div class=\"error_msg\">". form_error('contact_person_name') ."</div>"; ?>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Email</label>
-                                        <div class="col-sm-9">
-                                            <?php echo form_input('contact_person_email',set_value('contact_person_email',NULL)==NULL?$school->contact_email:set_value("contact_person_email"),array("class"=>"col-xs-10 col-sm-8")) ;?>
-                                            <?php echo "<div class=\"error_msg\">". form_error('contact_person_email') ."</div>"; ?>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Phone</label>
-                                        <div class="col-sm-9">
-                                            <?php echo form_input('contact_person_phone',set_value('contact_person_phone',NULL)==NULL?$school->contact_no:set_value("contact_person_phone"),array("class"=>"col-xs-10 col-sm-8")) ;?>
-                                            <?php echo "<div class=\"error_msg\">". form_error('contact_person_phone') ."</div>"; ?>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
+                            <label>To </label>
+                          </div>
+                          
+                          <div class="input-field col s12">
                                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"></label>
                                         <div class="col-sm-9">
                                             <button class="btn btn-info" type="submit" name="submit" value="submit">
@@ -141,60 +129,164 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </button>
                                         </div>
                                     </div>
+                          
+                              
+                                
 
-                                    <?php echo $this->session->error ?>
+                                    
+
+                                    <?php // echo $this->session->error ?>
                                 </form>
 
 
                             </div>
-                            <div id="profile3" class="tab-pane ">
-                                <div class="border_b">
-                                    <h4>User Management</h4>
-                                    <p>Manage all the user associated with DPS</p>
-                                </div>
-                                <table width="100%" class="table table-striped table-bordered table-hover table_text" id="" style="padding-left:12px;">
+                  
+                  
+                  
+                  
+                  
+                  
+ 
+                    
+                                   
+                  
+                  
+                  
+                  <div style="clear:both"></div> 
+                  </div>
+                  
+                   <h4><center>User Management</center></h4>
+                   <div class="card-panel">
+                   <strong>Manage User </strong>
+                   
+                   <table width="100%" class="table table-striped table-bordered table-hover table_text" id="">
                                     <thead>
                                     <tr>
-                                        <th width="30%">User Name</th>
-                                        <th width="20%">Email</th>
-                                        <th width="20%">Phone</th>
-                                        <th width="10%">Primary Admin</th>
+                                        <th width="">User Name</th>
+                                        <th width="">Email</th>
+                                        <th width="">Phone</th>
+                                        <th width="">Primary Admin</th>
                                         <th width="10%">Status</th>
-                                        <th width="10%">&nbsp;</th>
+                                        <th width="">Reset Password</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <?php
-                                        foreach($schoolAdmins as $schoolAdmin){
-                                            echo "<tr>\n";
-                                            echo "<td>$schoolAdmin->name</td>\n";
-                                            echo "<td>$schoolAdmin->email</td>\n";
-                                            echo "<td>$schoolAdmin->phone_number</td>\n";
-                                            $isAdmin = ($schoolAdmin->is_main_account==0) ? "No" : "Yes" ;
-                                            $isActivated ;
-                                            switch((int)$schoolAdmin->activated){
-                                                case STATE_ACTIVE:
-                                                    $isActivated = "Active";
-                                                    break;
-                                                case STATE_NOT_ACTIVE:
-                                                    $isActivated = "Not Active";
-                                                    break;
-                                                case STATE_DISABLED:
-                                                    $isActivated = "Disabled";
-                                                    break;
-
-
+                                        foreach($schoolAdmins as $schoolAdmin){?>
+                                        <input type="hidden" id="school_id" value="<?php echo $schoolAdmin->school_id;?>" />
+                                        
+                                            <tr>
+                                            <td><?php echo$schoolAdmin->name; ?></td>
+                                            <td><?php echo$schoolAdmin->email; ?></td>
+                                            <td><?php echo$schoolAdmin->phone_number; ?></td>
+                                            <td><?php 
+                                                        if($schoolAdmin->is_main_account=="1"){
+                                                            echo 'Yes';
                                             }
-                                            ($schoolAdmin->is_main_account==0) ? "No" : "Yes" ;
-                                            echo "<td>".$isAdmin."</td>\n";
-                                            echo "<td>".$isActivated."</td>\n";
-                                            echo "<td> <a href=\"#\" data-toggle=\"modal\" data-target=\"#myModal\">Reset Password</a></td>\n";
-                                            echo "</tr>\n";
+                                            if($schoolAdmin->is_main_account=="0"){
+                                                            echo 'No';
+                                            }
+                                            
+                                            //echo $schoolAdmin->is_main_account;
+                                            
+                                            
+                                             ?></td>
+                                             <td id="status" 
+                                             style=" <?php if($schoolAdmin->activated=="1"){?>
+                                                color:green;
+                                                    <?php  }  else{?>
+                                             color:red;
+                                           <?php } ?> 
+                                          cursor:pointer " 
+                                           
+                                           
+                                           
+                                           >
+                                           
+                                           
+                                           <?php  
+                                             
+                                             
+                                             if($schoolAdmin->activated=="1"){
+                                               echo 'Active';
+                                             }
+                                             if($schoolAdmin->activated=="0"){
+                                               echo 'Deactive';
+                                             }
+                                               
+                                             ?>
+                                              
+                                             </td>
+                                             <td><a  href="#modal5" class=" modal-trigger" data-toggle="modal" data-target="#myModal">Reset Password</a></td>
+                                            </tr>
+                                            
+                                            
+                                            <?php
                                         }
                                     ?>
                                     </tbody>
                                 </table>
+                   <div style="clear:both"></div> 
+                  </div>
+              
+<div id="modal5" class="modal bottom-sheet" style="opacity: 0.8px;">
+                  <div class="modal-content">
+                    <h4>Reset Password</h4>
+                    <p style="color:green" id="updatetext"></p>  
+                    <p style="color:red" id="errortext"></p>  
+                        <div class="card-panel">
+                        <input type="hidden" id="schoolid" value="<?php echo $school->id; ?>" /> 
+                            <div class="input-field col s12 m13 l3">
+                             <input type="password" name="newpassword" class="" id="newpassword">
+                          <label for="newpassword" class="">New Password</label>
                             </div>
+                            
+                            <div class="input-field col s12 m13 l3">
+                            <input type="password" class="" name="confirmpassword" id="confirmpassword">
+                          <label for="confirmpassword" class="">Confirm Password</label>
+                            </div>
+                            
+                            <div class="input-field col s12 m13 l3">
+                            <input type="password" class="" name="adminpassword" id="adminpassword">
+                          <label for="adminpassword" class="">Admin Password</label>
+                            </div>
+                            
+                            <div class="input-field col s12 m13 l3">
+                            	
+                            
+                            
+                             <button class="btn btn-info pull-right" type="submit" name="submit" id="resetpassschool"  value="submit">
+                           
+                           <i class="mdi-action-settings-backup-restore right"></i> Submit
+                        </button> 
+                            
+                            </div>
+                            
+                            <div style="clear:both"></div> 
+                        </div>
+                    
+                    
+                    
+                  </div>
+                </div>                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                                        
+                    
+                    
+                    <div class="tabbable tabs-left ">
+                        
+                        <div class="tab-content">
+                            
+                            
 <!-- ===================================================MoDAL================== -->
 <style>
 #dialog{
@@ -235,9 +327,121 @@ $(function() {
   });
 
 </script>
-
+<script>
+$("#resetpassschool").click(function(){
+   var schoolid= $('#schoolid').val();
+   // alert(schoolid);
+      $('#updatetext').html("");
+     $('#errortext').html("");
 
     
+    if($('#newpassword').val()!=""){
+        var newpassword= $('#newpassword').val();
+        console.log($('#newpassword').val());
+    
+    }else{
+        
+        alert("Enter New password");
+        $('#newpassword').focus();
+        return false;
+    }
+    
+     
+    if($('#confirmpassword').val()!=""){
+        var confirmpassword= $('#confirmpassword').val();
+        console.log($('#confirmpassword').val());
+    
+    }else{
+        
+        alert(" Enter Confirm password")
+         $('#confirmpassword').focus();
+        return false;
+    }
+     
+    if($('#adminpassword').val()!=""){
+        var adminpassword= $('#adminpassword').val();
+        console.log($('#adminpassword').val());
+    
+    }else{
+        
+        alert("Enter Admin password")
+         $('#adminpassword').focus();
+        return false;
+    }
+    
+     $.ajax({
+		type: "GET",
+		//dataType: "html",
+		url: '<?php echo site_url() ?>/admin/School_management/resetpasswordforschool',
+		data: {
+			'newpassword': newpassword,'confirmpassword': confirmpassword,'adminpassword': adminpassword ,'schoolid': schoolid
+		},
+		success: function(resp) {
+		 //console.log(resp);return false;
+          $('#updatetext').html(resp.update);
+          $('#errortext').html(resp.error);
+         
+ 		
+         
+         }
+	
+    });
+    
+    
+    
+    
+});
+$("#status").click(function(){
+    
+    var status =$("#status").text();
+    var status =status.trim();
+    
+    console.log("status"+status);
+   
+    var isactive="";
+    if(status=="Active"){
+         isactive ="0";
+    }else{
+        isactive = "1";
+    }
+    
+  // console.log("isactive-"+isactive);return false;
+    var school_id =$("#school_id").val();
+    //console.log("school::"+school_id);
+    
+    $.ajax({
+		type: "GET",
+		//dataType: "html",
+		url: '<?php echo site_url() ?>/admin/School_management/changestatus',
+		data: {
+			'school_id': school_id,'status': status,'isactive': isactive
+		},
+		success: function(resp) {
+		 //console.log(resp);return false;
+         if(resp.stateactive=="1"){
+             $("#status").text('Active');
+            $("#status").css({color:'green'})
+         }
+         if(resp.stateactive=="0"){
+            $("#status").text('Deactive');
+            $("#status").css({color:'red'})
+           
+         }
+         
+ 		
+         }
+	
+    });
+    
+    
+    
+    //alert(status);
+    
+})
+
+</script>
+
+    <!--
  <div id="dialog" title="Enter Fees">
     <div class="col-xs-12">
      <form class="form-horizontal" role="form">
@@ -251,7 +455,7 @@ $(function() {
      </form>
     </div>
  </div>
-
+-->
 
 
 
@@ -261,107 +465,13 @@ $(function() {
 
 
 
-                            <div id="dropdown13" class="tab-pane">
-                                <div class="border_b">
-                                    <h4>Fees Management</h4>
-                                    <p>Manage your personal details, contact information, language, country and timezone settings.</p>
-                                    <div class="col-xs-12 top_gap">
-<form>
-<div class="col-sm-6">
-<div class="form-group">
-<!-- <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Monthly Fees</label>
-<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5"> -->
-</div>
-
-
-
-
-</div>
-
-<div class="col-sm-6">
-<button type="button" class="btn btn-sm btn-success pull-right add_fees" id="opener" >
-Add Fee Type
-</button>
-</div>
-</form>
-<div class="clearfix"></div>
-
-
-
-
-
-
-
-
-
-
-<div class="col-xs-12 top_gap">
-<a href="#" class="add_row">Add A Row</a>
-<table id="simple-table" class="table table-striped table-bordered table-hover">
-<thead >
-<tr>
-<th>Fee Type</th>
-<th>Class I</th>
-<th>Class II</th>
-<th>Class III</th>
-<th>Class IV</th>
-<th>Class V</th>
-<th>Class VI</th>
-<th>Class VII</th>
-<th>Class VIII</th>
-<th>Class IX</th>
-<th>Class X</th>
-<th>Class XI</th>
-<th>Class XII</th>
-</tr>
-</thead>
-
-<tbody class="place_row">
-
-
-
-<tr class="gtg">
-<td>Grand Total</td>
-<td>---</td>
-<td>--</td>
-<td>---</td>
-<td>---</td>
-<td>---</td>
-<td>---</td>
-<td>---</td>
-<td>---</td>
-<td>---</td>
-<td>---</td>
-<td>---</td>
-<td>---</td>
-</tr>
-
-
-
-
-
-</tbody>
-</table>
-
- 
-                                    
-                                        
-</div>
-
-
-
-
-
-
-</div>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                     <!-- PAGE CONTENT ENDS -->
                 </div>
                 <!-- /.col -->
-            </div>
+           
             </div><!-- /.page-content -->
         </div>
     </div><!-- /.main-content -->

@@ -25,6 +25,9 @@ class Login extends CI_Controller
                     redirect("admin/login");
                 }
             } else {
+                
+                
+                
                 $this->load->view('admin/login/view_login');
             }
         } else {

@@ -1,133 +1,92 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');?>
-<div class="main-container" id="main-container">
-    <script type="text/javascript">
-        try{ace.settings.check('main-container' , 'fixed')}catch(e){}
-    </script>
 
-    <div id="sidebar" class="sidebar responsive">
-        <script type="text/javascript">
-            try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
-        </script>
+  <!-- START MAIN -->
+  <div id="main">
+    <!-- START WRAPPER -->
+    <div class="wrapper">
 
-        <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-            <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-                <button class="btn btn-success">
-                    <i class="ace-icon fa fa-signal"></i>
-                </button>
-
-                <button class="btn btn-info">
-                    <i class="ace-icon fa fa-pencil"></i>
-                </button>
-
-                <button class="btn btn-warning">
-                    <i class="ace-icon fa fa-users"></i>
-                </button>
-
-                <button class="btn btn-danger">
-                    <i class="ace-icon fa fa-cogs"></i>
-                </button>
-            </div>
-
-            <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
-                <span class="btn btn-success"></span>
-
-                <span class="btn btn-info"></span>
-
-                <span class="btn btn-warning"></span>
-
-                <span class="btn btn-danger"></span>
-            </div>
-        </div><!-- /.sidebar-shortcuts -->
-
-        <ul class="nav nav-list">
-            <!--<li class="">
-                <a href="index.html">
-                    <i class="menu-icon fa fa-tachometer"></i>
-                    <span class="menu-text"> Dashboard </span>
-                </a>
-
-                <b class="arrow"></b>
-            </li>-->
-
-            <li class="">
-                <a href="#" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-desktop"></i>
-							<span class="menu-text">
-								School Management
-							</span>
-
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
-
-                <b class="arrow"></b>
-
-                <ul class="submenu">
-                    <li class="">
-                        <a href="<?php echo site_url("admin/school-management/create");?>">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Create School
-                        </a>
-
-                        <b class="arrow"></b>
+      <!-- START LEFT SIDEBAR NAV-->
+       <aside id="left-sidebar-nav">
+                <ul id="slide-out" class="side-nav fixed leftside-navigation">
+                    <li class="user-details cyan darken-2">
+                        <div class="row">
+                            <div class="col col s4 m4 l4">
+                                <img src="<?php echo base_url("assets/images/avatar.jpg");?>" alt="" class="circle responsive-img valign profile-image">
+                            </div>
+                            <div class="col col s8 m8 l8">
+                                <ul id="profile-dropdown" class="dropdown-content">
+                                    <li><a href="<?php echo site_url("admin/profile");?>"><i class="mdi-action-face-unlock"></i> Profile</a>
+                                    </li>
+                                 <!--   <li><a href="#"><i class="mdi-action-settings"></i> Settings</a>
+                                    </li>
+                                    <li><a href="#"><i class="mdi-communication-live-help"></i> Help</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><i class="mdi-action-lock-outline"></i> Lock</a>
+                                    </li> -->
+                                    <li><a href="<?php echo site_url("admin/logout");?>"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+                                    </li>
+                                </ul>
+                                <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">	<?php echo $this->session->user_name; ?><i class="mdi-navigation-arrow-drop-down right"></i></a>
+                                <p class="user-roal">Welcome</p>
+                            </div>
+                        </div>
                     </li>
-
-                    <li class="">
-                        <a href="<?php echo site_url("admin/school-management/view-all");?>">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            View All
-                        </a>
-
-                        <b class="arrow"></b>
+                    <li class="bold active"><a href="<?php echo site_url("admin/dashboard"); ?>" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a>
                     </li>
-
-            
-                </ul>
-                <ul class="nav nav-list">
-      <li class="active"> <a href="index.html"> <i class="menu-icon fa fa-tachometer"></i> <span class="menu-text">Fees Management</span> </a> <b class="arrow"></b> </li>
-      <li class=""> <a href="#" class="dropdown-toggle"> <i class="menu-icon fa fa-desktop"></i> <span class="menu-text"> Fees Management </span> <b class="arrow fa fa-angle-down"></b> </a> <b class="arrow"></b>
-        <ul class="submenu">
-          <li class=""> <a href="#" class="dropdown-toggle"> <i class="menu-icon fa fa-caret-right"></i> Payment <b class="arrow fa fa-angle-down"></b> </a> <b class="arrow"></b>
-            <ul class="submenu">
-              <li class=""> <a href="by_app.html"> <i class="menu-icon fa fa-caret-right"></i> By App </a> <b class="arrow"></b> </li>
-              <li class=""> <a href="by_cash.html"> <i class="menu-icon fa fa-caret-right"></i> By Cash </a> <b class="arrow"></b> </li>
-            </ul>
-          </li>
-          <li class=""> <a href="#"  class="dropdown-toggle"> <i class="menu-icon fa fa-caret-right"></i> Fee Setting <b class="arrow fa fa-angle-down"></b> </a> <b class="arrow"></b>
-            <ul class="submenu">
-              <li class=""> <a href="<?php echo site_url('admin/Addfee/addfee')?>"> <i class="menu-icon fa fa-caret-right"></i> Add Fee </a> <b class="arrow"></b> </li>
+                    
+                    
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+                        <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-account-balance-wallet"></i> School Management </a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li><a href="<?php echo site_url("admin/school-management/create");?>">Create School  </a>
+                                        </li>                                        
+                                        <li><a href="<?php echo site_url("admin/school-management/view-all");?>">View All </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            
+                        <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-editor-attach-money"></i>Fees Management </a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                         <li class=""> <a href="<?php echo site_url('admin/Addfee/addfee')?>"> <i class="menu-icon fa fa-caret-right"></i> Add Fee </a> <b class="arrow"></b> </li>
               <li class=""> <a href="<?php echo site_url('admin/Addfee/transportfee')?>"> <i class="menu-icon fa fa-caret-right"></i> Transport Fee </a> <b class="arrow"></b> </li>
-              <li class=""> <a href="edit_fees_setting.html"> <i class="menu-icon fa fa-caret-right"></i> Edit Fee </a> <b class="arrow"></b> </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li class=""> <a href="#" class="dropdown-toggle"> <i class="menu-icon fa fa-pencil-square-o"></i> <span class="menu-text"> Student Management </span> <b class="arrow fa fa-angle-down"></b> </a> <b class="arrow"></b>
-        <ul class="submenu">
-          <li class=""> <a href="upload_student.html"> <i class="menu-icon fa fa-caret-right"></i>Upload Student <b class="arrow fa fa-angle-down"></b> </a> <b class="arrow"></b>
-            <!--<ul class="submenu">
-              <li class=""> <a href="#"> <i class="menu-icon fa fa-caret-right"></i> By App </a> <b class="arrow"></b> </li>
-              <li class=""> <a href="#"> <i class="menu-icon fa fa-caret-right"></i> By Bank </a> <b class="arrow"></b> </li>
-              <li class=""> <a href="#"> <i class="menu-icon fa fa-caret-right"></i> By Cash </a> <b class="arrow"></b> </li>
-            </ul>-->
-          </li>
-          <li class=""> <a href="student_details.html"> <i class="menu-icon fa fa-caret-right"></i> View Student <b class="arrow fa fa-angle-down"></b> </a> <b class="arrow"></b>
-            <!--<ul class="submenu">
-              <li class=""> <a href="#"> <i class="menu-icon fa fa-caret-right"></i> 2000 </a> <b class="arrow"></b> </li>
-              <li class=""> <a href="#"> <i class="menu-icon fa fa-caret-right"></i> 50000 </a> <b class="arrow"></b> </li>
-            </ul>-->
-          </li>
-        </ul>
-            </li>
+              <li class=""> <a href="<?php echo site_url('admin/Addfee/editfee')?>"> <i class="menu-icon fa fa-caret-right"></i> Edit Fee </a> <b class="arrow"></b> </li>
+              <li class=""> <a href="<?php echo site_url('admin/Addfee/edittransportfee')?>"> <i class="menu-icon fa fa-caret-right"></i> Edit Transport Fee </a> <b class="arrow"></b> </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            
+                            
+                        <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-social-school"></i>Student Management </a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li><a href="<?php echo site_url('admin/Studentmanagement/uploadstudent')?>">Upload Student  </a>
+                                        </li>                                        
+                                        <li><a href="css-icons.html">View Student </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            
+ 
+                            <li class="bold "><a href="<?php echo site_url("admin/School_management/logs"); ?>" class="waves-effect waves-cyan"><i class="mdi-action-assignment"></i> Members Logs</a>
+                    </li>
+                           
+                     <li class="bold "><a href="<?php echo site_url("admin/Plancost"); ?>" class="waves-effect waves-cyan"><i class="mdi-action-extension"></i>Membership Plan</a>
+                    </li>
+                      <li class="bold "><a href="<?php echo site_url("admin/Payment"); ?>" class="waves-effect waves-cyan"><i class="mdi-action-payment"></i>Payment Logs</a>
+                    </li>      
+                        </ul>
+                    </li>
 
-
-        </ul><!-- /.nav-list -->
-
-        <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
-            <i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
-        </div>
-
-        <script type="text/javascript">
-            try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
-        </script>
-    </div>
+                    
+                    
+                </ul>
+                <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan"><i class="mdi-navigation-menu"></i></a>
+            </aside>
+      <!-- END LEFT SIDEBAR NAV-->
