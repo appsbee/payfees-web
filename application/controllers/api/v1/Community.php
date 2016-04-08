@@ -43,6 +43,7 @@ class Community extends Base {
 		}
 	}
 	/**
+	 *
 	 * [getcommunity_get description]
 	 * @return [type] [description]
 	 */

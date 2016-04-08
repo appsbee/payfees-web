@@ -49,25 +49,29 @@ class Communityapi extends CI_Model {
 //7278976218
 	function getcommunity($guardianregister_id) {
 		//echo $guardianregister_id;die();
-		$this->db->select('*');
+		/*$this->db->select('*');
 		$this->db->where('guardianregister_id', $guardianregister_id);
 		$row = $this->db->get('guardianregister')->row_array();
-
 		//echo '<pre>';
 		//print_r($row);die();
-
-		$guardian_phno = $row['guardian_phno'];
-		//echo '<pre>';
+		$guardian_phno = $row['guardian_phno'];*/
 		//print_r($guardian_phno);die();
-
-		$this->db->select('*');
-
+		/*$this->db->select('*');
 		$this->db->where('guardian_phno', $guardian_phno);
 		$rows = $this->db->get('studentdetails')->result_array();
-
+*/
 		//echo '<pre>';
 		//print_r($rows);die();
+		$this->db->select('school_id');
+		$this->db->where('guardianregister_id', $guardianregister_id);
+		$this->db->group_by("school_id");
+		$rows = $this->db->get('studentguardian')->result_array();
+		//echo '<pre>';
+		//print_r($rows);
+		//die();
+
 		$mainArray = array();
+
 		$comuntybyuser = array();
 		foreach ($rows as $key => $value) {
 

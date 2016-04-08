@@ -279,4 +279,15 @@ $minite = $hours / 60;
 		}
 
 	}
+
+	public function getPostcommentbyId_get() {
+		$communitypost_id = $this->get('communitypost_id', true);
+
+		$response = $this->Communitypostapi->commentgetbyPostid($communitypost_id);
+		if (isset($response) && is_array($response) && count($response)) {
+			$this->send_success($response);
+		} else {
+			$this->send_error("No Details Found!");
+		}
+	}
 }

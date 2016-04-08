@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <title><?php echo $pageTitle; ?></title>
 
   <!-- Favicons-->
-  <link rel="icon" href="<?php echo base_url("assets/images/favicon/favicon-32x32.png");?>" sizes="32x32">
+  <link rel="icon" href="<?php echo base_url("assets/images/favicon/favicon-32x32.png"); ?>" sizes="32x32">
   <!-- Favicons-->
 <!--   <link rel="apple-touch-icon-precomposed" href="images/favicon/apple-touch-icon-152x152.png">
   For iPhone -->
@@ -23,26 +23,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
   <!-- CORE CSS-->
-  
+
   <link href="<?php echo base_url("assets/css/materialize.css"); ?>" type="text/css" rel="stylesheet" media="screen,projection">
-  
-  
-  
+
+
+
   <link href="<?php echo base_url("assets/css/style.css"); ?>" type="text/css" rel="stylesheet" media="screen,projection">
-    <!-- Custome CSS-->    
-    <link href="<?php echo base_url("assets/css/custom-style.css");?>" type="text/css" rel="stylesheet" media="screen,projection">
+    <!-- Custome CSS-->
+    <link href="<?php echo base_url("assets/css/custom-style.css"); ?>" type="text/css" rel="stylesheet" media="screen,projection">
 
 
   <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
-  <link href="<?php echo base_url("assets/css/prism.css");?>" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="<?php echo base_url("assets/js/plugins/perfect-scrollbar/perfect-scrollbar.css");?>" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="<?php echo base_url("assets/js/plugins/chartist-js/chartist.min.css");?>" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="<?php echo base_url("assets/css/prism.css"); ?>" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="<?php echo base_url("assets/js/plugins/perfect-scrollbar/perfect-scrollbar.css"); ?>" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="<?php echo base_url("assets/js/plugins/chartist-js/chartist.min.css"); ?>" type="text/css" rel="stylesheet" media="screen,projection">
+      <script type="text/javascript" src="<?php echo base_url("assets/js/jquery-1.11.2.min.js"); ?>"></script>
 </head>
 
 <body>
   <!-- Start Page Loading -->
   <div id="loader-wrapper">
-      <div id="loader"></div>        
+      <div id="loader"></div>
       <div class="loader-section section-left"></div>
       <div class="loader-section section-right"></div>
   </div>
@@ -55,22 +56,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- start header nav-->
         <div class="navbar-fixed">
             <nav class="cyan">
-                <div class="nav-wrapper">                    
-                    
-                    <ul class="left">                      
-                      <li><h1 class="logo-wrapper"><a href="#" class="brand-logo darken-1"><img src="<?php echo base_url("assets/images/materialize-logo.png");?>" alt="materialize logo"></a> <span class="logo-text">Materialize</span></h1></li>
+                <div class="nav-wrapper">
+
+                    <ul class="left">
+                      <li><h1 class="logo-wrapper"><a href="#" class="brand-logo darken-1"><img src="<?php echo base_url("assets/images/materialize-logo.png"); ?>" alt="materialize logo"></a> <span class="logo-text">Materialize</span></h1></li>
                     </ul>
                     <div class="header-search-wrapper hide-on-med-and-down">
                         <i class="mdi-action-search"></i>
                         <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Pay Fees"/>
                     </div>
-                    <ul class="right hide-on-med-and-down">                        
+                    <ul class="right hide-on-med-and-down">
                         <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light toggle-fullscreen"><i class="mdi-action-settings-overscan"></i></a>
                         </li>
                         <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light"><i class="mdi-navigation-apps"></i></a>
-                        </li>                        
+                        </li>
                         <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light"><i class="mdi-social-notifications"></i></a>
-                        </li>                        
+                        </li>
                         <li><a href="#" data-activates="chat-out" class="waves-effect waves-block waves-light chat-collapse"><i class="mdi-communication-chat"></i></a>
                         </li>
                     </ul>

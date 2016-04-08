@@ -1,10 +1,10 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 ?>
 
 <!-- START CONTENT -->
       <section id="content">
-        
+
         <!--breadcrumbs start-->
         <div id="breadcrumbs-wrapper" class=" grey lighten-3">
             <!-- Search for small screen -->
@@ -26,38 +26,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
         </div>
         <!--breadcrumbs end-->
-        
+        <div class="input-field col s12">
+          <i class="mdi-action-search prefix"></i>
+          <input id="search_school" type="text" class="validate">
+          <label for="icon_prefix">Search School</label>
+        </div>
+        <ul id="sc_name"></ul>
 
         <!--start container-->
         <div class="container">
           <div class="section">
 
              <div class="row">
-              	<!--<div class="col s12 m4 l4">
-                
+                <!--<div class="col s12 m4 l4">
+
           <div class="input-field col s12">
           <i class="mdi-action-search prefix"></i>
           <input id="icon_prefix" type="text" class="validate">
           <label for="icon_prefix">Search School</label>
         </div>
                 </div> -->
-                
-                
-                
-                
-                
+
+
+
+
+
               </div>
               <div class="divider"></div>
             <div id="borderless-table">
               <h4 class="header">School List</h4>
               <div class="row">
               <div >
-			<p style="color:green;margin-top:16px; font-size:15px;" align="center"><strong><?php echo $this->session->flashdata('success'); ?></strong></p>
-									</div>
-                
+      <p style="color:green;margin-top:16px; font-size:15px;" align="center"><strong><?php echo $this->session->flashdata('success'); ?></strong></p>
+                  </div>
+
                 <div class="col s12 m12 l12">
                   <table class="responsive-table">
-                    <thead> 	 			
+                    <thead>
                       <tr>
                         <th data-field="id">School Name</th>
                         <th data-field="name">School Address</th>
@@ -69,20 +74,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <tbody>
                     <?php
 
-                        foreach($schools as $school){
-                           echo "<tr>\n";
-                           echo "<td><a href='".site_url("admin/school-management/edit/".$school->id)."'>$school->school_name</a></td>\n";
-                           echo "<td>$school->address</td>\n";
-                          // echo "<td>$school->contact_person</td>\n"; old
-                          // echo "<td>$school->contact_email</td>\n";  old
-                         //  echo "<td>$school->contact_no</td>\n";  old
-                          
-                          echo "<td>$school->name</td>\n";
-                           echo "<td>$school->email</td>\n";
-                           echo "<td>$school->phone_number</td>\n";
-                           echo "</tr>\n";
-                        }
-                    ?>
+foreach ($schools as $school) {
+	echo "<tr>\n";
+	echo "<td><a href='" . site_url("admin/school-management/edit/" . $school->id) . "'>$school->school_name</a></td>\n";
+	echo "<td>$school->address</td>\n";
+	// echo "<td>$school->contact_person</td>\n"; old
+	// echo "<td>$school->contact_email</td>\n";  old
+	//  echo "<td>$school->contact_no</td>\n";  old
+
+	echo "<td>$school->name</td>\n";
+	echo "<td>$school->email</td>\n";
+	echo "<td>$school->phone_number</td>\n";
+	echo "</tr>\n";
+}
+?>
                       <!--<tr>
                         <td>Jawahar High School</td>
                         <td>30, Rishi tech park</td>
@@ -120,6 +125,74 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!--end container-->
       </section>
       <!-- END CONTENT -->
-      
-      
 
+
+
+<script>
+;(function($){
+    $.fn.extend({
+        donetyping: function(callback,timeout){
+            timeout = timeout || 1e3; // 1 second default timeout
+            var timeoutReference,
+                doneTyping = function(el){
+                    if (!timeoutReference) return;
+                    timeoutReference = null;
+                    callback.call(el);
+                };
+            return this.each(function(i,el){
+                var $el = $(el);
+                $el.is(':input') && $el.on('keyup keypress paste',function(e){
+                    if (e.type=='keyup' && e.keyCode!=8) return;
+
+                    if (timeoutReference) clearTimeout(timeoutReference);
+                    timeoutReference = setTimeout(function(){
+
+                        doneTyping(el);
+                    }, timeout);
+                }).on('blur',function(){
+                    doneTyping(el);
+                });
+            });
+        }
+    });
+})(jQuery);
+$('#search_school').donetyping(function(){
+    var keywords= $('#search_school').val();
+    //console.log(keywords);return false;
+if(keywords!=""){
+ $.ajax({
+    type: "POST",
+    url: '<?php echo site_url() ?>/admin/School_management/getschoolname',
+    data: {
+      'keywords': keywords
+    },
+    success: function(resp) {
+     // console.log(resp.length);return false;
+
+    var list ="";
+     var name="";
+     if(resp!=""){
+ for (i = 0; i < resp.length; i++) {
+
+
+        list += '<li ><a href=<?=base_url()?>admin/school-management/edit/'+resp[i].id+'>'+resp[i].school_name+'</a></li>';
+
+
+        }
+        console.log(list);
+        $('#sc_name').html(list);
+     }
+     else{
+    $('#sc_name').html("No School Found");
+     }
+
+    }
+  });
+}else{
+$('#sc_name').html("");
+}
+
+
+
+});
+</script>

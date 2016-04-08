@@ -193,6 +193,17 @@ class Communitypostapi extends CI_Model {
 
 	}
 
+	function commentgetbyPostid($communitypost_id) {
+		$this->db->select('*');
+		$this->db->where('communitypost_id', $communitypost_id);
+
+		$data["Post"] = $this->db->get('communitypost')->result_array();
+
+		$data["comments"] = $this->CommentsByPostID($communitypost_id);
+		return $data;
+		//echo $communitypost_id;die();
+
+	}
 }
 
 ?>
