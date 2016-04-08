@@ -215,7 +215,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
 
 <div class="col s6 m6 l6">
-<img src="<?php echo base_url() ?>uploads/thumble/ "<?php $school->school_img?>" alt="Smiley face" height="" width="42">
+<img src="<?php echo base_url() ?>uploads/thumble/<?php echo $school->school_img ?>"alt="Smiley face" height="" width="">
 </div>
 
 
