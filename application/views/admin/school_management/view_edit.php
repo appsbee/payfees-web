@@ -18,9 +18,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
+
+
+
+
+
+
                     <!-- PAGE CONTENT BEGINS -->
-                    <center><h4>School Information</h4>
-                    <p>Manage the school details.</p></center>
+                    <center><h4 style="color:#FF5F61"><?php echo $school->school_name; ?></h4>
+                    <p style="color: #039BE5">Manage the school details.</p></center>
 
                   <div class="card-panel">
                   <div class="">
@@ -215,8 +221,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
 
 <div class="col s6 m6 l6">
-<img src="<?php echo base_url() ?>uploads/thumble/<?php echo $school->school_img ?>"alt="Smiley face" height="" width="">
+          <div class="input-field col s12">
+
+                              <label for="first_name" class="active">School Logo</label>
+                               <br/>
+                           <?php if ($school->school_logo) {
+	?>
+                            <img src="<?php echo base_url() ?>uploads/thumble/<?php echo $school->school_logo ?>"alt="Smiley face" height="200px" width="200px">
+                       <?php
+} else {
+
+	?>
+           <img src="<?php echo base_url() ?>images/images.jpg"alt="Smiley face" height="100px" width="100px">
+          <?php }?>
+
+
+        </div>
+        <div style="clear:both"></div>
+          <br/>
+          <label for="first_name" class="active">School Image</label>
+          <br/>
+
+              <?php if ($school->school_img) {
+	?>
+
+          <img src="<?php echo base_url() ?>uploads/thumble/<?php echo $school->school_img ?>"alt="Smiley face" height="" width="500px">
+          <?php
+} else {
+
+	?>
+           <img src="<?php echo base_url() ?>images/school-default.jpg"alt="Smiley face" height="" width="500px">
+          <?php }?>
+
 </div>
+
 
 
 
