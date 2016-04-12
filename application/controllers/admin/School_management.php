@@ -640,6 +640,208 @@ class School_management extends Base_Admin_Controller {
 
 		//echo $school_name;
 	}
+
+	public function editschoolImg() {
+
+		$school_id = $this->input->post("school_id");
+
+		if (isset($_FILES['editschool_img']) && $_FILES['editschool_img']['name'] != "") {
+
+			// echo 'file1';
+			//  die();
+			if (!is_dir('uploads/')) {
+				mkdir('./uploads/', 0777, true);
+			}
+			if (!is_dir('uploads/big/')) {
+				mkdir('./uploads/big/', 0777, true);
+
+			}
+			if (!is_dir('uploads/thumb/')) {
+				mkdir('./uploads/thumb/', 0777, true);
+
+			}
+			if (!is_dir('uploads/thumble/')) {
+				mkdir('./uploads/thumble/', 0777, true);
+
+			}
+			$this->load->library('image_lib');
+
+			$config['upload_path'] = './uploads/big/';
+			$config['allowed_types'] = 'jpg|png|jpeg';
+			$config['max_size'] = '0';
+			$config['max_width'] = '0';
+			$config['max_height'] = '0';
+			$config['encrypt_name'] = true;
+			$this->load->library('upload', $config);
+			/* size 50*50for comments */
+
+			$configThumb = array();
+			$configThumb['image_library'] = 'gd2';
+			$configThumb['create_thumb'] = true;
+			$configThumb['new_image'] = './uploads/thumb/';
+			$configThumb['maintain_ratio'] = true;
+			$configThumb['width'] = 50;
+			$configThumb['height'] = 50;
+			$configThumb['thumb_marker'] = "";
+			/* size 50*50 for comments */
+
+			/* size 300*300 for thuble */
+			$configThumble = array();
+			$configThumble['image_library'] = 'gd2';
+			$configThumble['create_thumble'] = true;
+			$configThumble['new_image'] = './uploads/thumble/';
+			$configThumble['maintain_ratio'] = true;
+			$configThumble['width'] = 300;
+			$configThumble['height'] = 300;
+			$configThumble['thumb_marker'] = "";
+			/* size 300*300 for thuble */
+
+			//echo '<pre>'; print_r($config);die();
+
+			if (!$this->upload->do_upload('editschool_img')) {
+
+				$data['error'] = $this->upload->display_errors();
+
+				//echo '<pre>';
+				//print_r($data['error']);die();
+				header('Content-Type: application/json; charset=utf-8');
+
+				echo json_encode($data);
+				exit;
+				//$this->session->set_flashdata("errorlogo", $data['error']);
+				//redirect("admin/school-management/edit/" . $school_id);
+				//die();
+
+			} else {
+
+				//$folder = 'uploads/';
+				$fileData = $this->upload->data();
+				//print"<pre>";print_r($fileData['file_ext']);die;
+
+				$configThumb['source_image'] = $fileData['full_path'];
+				$configThumble['source_image'] = $fileData['full_path'];
+
+				$raw_name = $fileData['raw_name'];
+				$file_ext = $fileData['file_ext'];
+
+				$imgname = $raw_name . $file_ext;
+
+				$this->image_lib->initialize($configThumb);
+				$this->image_lib->resize();
+				$this->image_lib->initialize($configThumble);
+				$this->image_lib->resize();
+				// echo "<pre>"; print_r($fileData);die();
+				//$img_logo = $folder . $fileData['file_name'];
+				$school_img = $fileData['file_name'];
+				// echo $img_logo;
+				// die();
+
+			}
+
+		}
+		$this->load->model("MSchool", "school");
+		$school_id = $this->school->schoolImageupdate($school_id, $school_img);
+		echo $school_id;
+	}
+
+	public function editschoollogo() {
+
+		$school_id = $this->input->post("school_id");
+
+		if (isset($_FILES['editschool_logo']) && $_FILES['editschool_logo']['name'] != "") {
+
+			// echo 'file1';
+			//  die();
+			if (!is_dir('uploads/')) {
+				mkdir('./uploads/', 0777, true);
+			}
+			if (!is_dir('uploads/big/')) {
+				mkdir('./uploads/big/', 0777, true);
+
+			}
+			if (!is_dir('uploads/thumb/')) {
+				mkdir('./uploads/thumb/', 0777, true);
+
+			}
+			if (!is_dir('uploads/thumble/')) {
+				mkdir('./uploads/thumble/', 0777, true);
+
+			}
+			$this->load->library('image_lib');
+
+			$config['upload_path'] = './uploads/big/';
+			$config['allowed_types'] = 'jpg|png|jpeg';
+			$config['max_size'] = '0';
+			$config['max_width'] = '0';
+			$config['max_height'] = '0';
+
+			$config['encrypt_name'] = true;
+			$this->load->library('upload', $config);
+			/* size 50*50for comments */
+
+			$configThumb = array();
+			$configThumb['image_library'] = 'gd2';
+			$configThumb['create_thumb'] = true;
+			$configThumb['new_image'] = './uploads/thumb/';
+			$configThumb['maintain_ratio'] = true;
+			$configThumb['width'] = 50;
+			$configThumb['height'] = 50;
+			$configThumb['thumb_marker'] = "";
+			/* size 50*50 for comments */
+
+			/* size 300*300 for thuble */
+			$configThumble = array();
+			$configThumble['image_library'] = 'gd2';
+			$configThumble['create_thumble'] = true;
+			$configThumble['new_image'] = './uploads/thumble/';
+			$configThumble['maintain_ratio'] = true;
+			$configThumble['width'] = 300;
+			$configThumble['height'] = 300;
+			$configThumble['thumb_marker'] = "";
+			/* size 300*300 for thuble */
+
+			//echo '<pre>'; print_r($config);die();
+
+			if (!$this->upload->do_upload('editschool_logo')) {
+
+				$data['error'] = $this->upload->display_errors();
+
+				//echo '<pre>';
+				//print_r($data['error']);die();
+				header('Content-Type: application/json; charset=utf-8');
+				echo json_encode($data);
+				exit;
+			} else {
+				//$folder = 'uploads/';
+				$fileData = $this->upload->data();
+				//print"<pre>";print_r($fileData['file_ext']);die;
+
+				$configThumb['source_image'] = $fileData['full_path'];
+				$configThumble['source_image'] = $fileData['full_path'];
+
+				$raw_name = $fileData['raw_name'];
+				$file_ext = $fileData['file_ext'];
+
+				$imgname = $raw_name . $file_ext;
+
+				$this->image_lib->initialize($configThumb);
+				$this->image_lib->resize();
+				$this->image_lib->initialize($configThumble);
+				$this->image_lib->resize();
+				// echo "<pre>"; print_r($fileData);die();
+				//$img_logo = $folder . $fileData['file_name'];
+				$school_logo = $fileData['file_name'];
+				//echo $img_logo;
+				//die();
+
+			}
+
+		}
+		$this->load->model("MSchool", "school");
+		$school_id = $this->school->schoolLogoupdate($school_id, $school_logo);
+		echo $school_id;
+
+	}
 }
 
 ?>

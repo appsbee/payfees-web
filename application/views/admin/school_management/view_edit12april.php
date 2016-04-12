@@ -16,52 +16,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="col s12 m12 l12">
                  <div class="col s12 m12 l12">
                 <div class="cover_picmain">
-<?php
-if (isset($school->school_img) && $school->school_img != "") {
-	$url = base_url() . 'uploads/thumble/' . $school->school_img;
-} else {
-	$url = base_url() . 'images/school-default.jpg';
-}
-?>
-                  <a href="#" class="cover_pic"><img src="<?php echo $url; ?> " alt="Edit Picture"></a>
+                  <a href="#" class="cover_pic"><img src="http://192.168.0.1/monobrata/payfees/uploads/thumble/59bc60583f5b53f8f92905997aaec50c.jpg" alt="Edit Picture"></a>
 
 <a href="#" class="edit_cover_pic">
 <div class="edit_upload_pic">
 <span class="pad_icon"><i class="mdi-image-camera-alt"></i></span>  Edit Picture
- <?php echo form_open_multipart("admin/school-management/editschoolImg", array("class" => "form-horizontal", "id" => "schoolImgedit", "role" => "form")); ?>
-
-
-<input type="hidden" name="school_id" value="<?php echo $school->id; ?>" />
-
-<input type="file" name="editschool_img" class="upload1" id="editschool_img" />
-
-
-<?php echo form_close() ?>
-
+<input type="file" class="upload1" />
 </div>
 
 </a>
-<?php
-if (isset($school->school_logo) && $school->school_logo != "") {
-	$url = base_url() . 'uploads/thumble/' . $school->school_logo;
-} else {
-	$url = base_url() . 'images/images.jpg';
-}
-?>
+
 <a href="#" class="edit_logo">
-<img id="logoup" src="<?php echo $url; ?>" alt="Smiley face">
+<img src="http://192.168.0.1/monobrata/payfees/uploads/thumble/6dc08b8b2b952ae99da08e58fa083148.jpg" alt="Smiley face">
 <div class="edit_con">
 <div class="edit_upload_pic">
-<span class="pad_icon"><i class="mdi-image-edit"></i></span>
-<?php echo form_open_multipart("admin/school-management/editschoollogo", array("class" => "form-horizontal", "id" => "edit_schoollogo", "role" => "form")); ?>
-<input type="hidden" name="school_id" value="<?php echo $school->id; ?>" />
-<input type="file" class="upload1" name="editschool_logo" class="upload1" id="editschool_logo"/>
-
-
-<?php echo form_close() ?>
-</div>
-
-</div>
+<span class="pad_icon"><i class="mdi-image-edit"></i></span> <input type="file" class="upload1" />
+</div></div>
 
 </a>
 
@@ -277,7 +247,7 @@ if (isset($school->school_logo) && $school->school_logo != "") {
 
 
                             </div>
-<!--
+
 <div class="col s6 m6 l6">
           <div class="input-field col s12">
 
@@ -312,7 +282,7 @@ if (isset($school->school_logo) && $school->school_logo != "") {
           <?php }?>
 
 </div>
--->
+
 
 
 
@@ -466,86 +436,7 @@ if ($schoolAdmin->is_main_account == "1") {
  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
- <script type="text/javascript" src="<?php echo base_url("assets/js/jquery.form.js"); ?>"></script>
 <script>
-$('#editschool_img').change(function(){
-
-//alert('asfsafafaf');
-
-var ext = $('#editschool_img').val().split('.').pop().toLowerCase();
-if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
-    alert('Invalid Extension!');
-}else{
-    //alert('true');
-
-$('#schoolImgedit').ajaxSubmit({
-
-        //dataType: 'json',
-        //beforeSubmit: showRequest,
-        success: processJson
-    });
-
-  function processJson(data) {
-    if(data==0){
-      location.reload();
-    }else{
-      alert(data.error);
-
-    }
-
-  }
-
-}
-
-
-});
-
-$('#editschool_logo').change(function(){
-
-//alert('asfsafafaf');
-
-var ext = $('#editschool_logo').val().split('.').pop().toLowerCase();
-if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
-    alert('Invalid Extension!');
-}else{
-    //alert('true');
-
-$('#edit_schoollogo').ajaxSubmit({
-
-        //dataType: 'json',
-        //beforeSubmit: showRequest,
-        success: processJson
-    });
-
-  function processJson(data) {
-    if(data==0){
-
-   // var xurl =<?php base_url()?> + 'uploads/thumble/' + data;
-  //console.log("url"+xurl);
-  //alert(xurl);
-   //return false;
-     // logoup
-      location.reload();
-    }else{
-      alert(data.error);
-
-    }
-
-  }
-
-}
-
-
-});
-
-
-
-
-
-
-
-
-
 $(function() {
     $( "#dialog" ).dialog({
       autoOpen: false,
