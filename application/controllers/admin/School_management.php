@@ -819,7 +819,8 @@ class School_management extends Base_Admin_Controller {
 				$this->image_lib->clear();
 				$this->load->model("MSchool", "school");
 				$school_id = $this->school->schoolLogoupdate($school_id, $data['image']);
-				echo $school_id;
+				header('Content-Type', 'application/json');
+				echo json_encode(array('id' => '1'));
 				exit;
 			}
 			exit;

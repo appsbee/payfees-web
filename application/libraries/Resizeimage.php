@@ -75,7 +75,7 @@ class Resizeimage {
 		}
 
 		# This is the resizing/resampling/transparency-preserving magic
-		echo $image_resized = imagecreatetruecolor($final_width, $final_height);
+		$image_resized = imagecreatetruecolor($final_width, $final_height);
 		if (($info[2] == IMAGETYPE_GIF) || ($info[2] == IMAGETYPE_PNG)) {
 			$transparency = imagecolortransparent($image);
 			$palletsize = imagecolorstotal($image);
