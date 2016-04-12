@@ -2,6 +2,12 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class School_management extends Base_Admin_Controller {
+
+	public function __construct() {
+		parent::__construct();
+
+	}
+
 	public function index() {
 
 		if ($this->input->post("submit")) {
@@ -708,9 +714,6 @@ class School_management extends Base_Admin_Controller {
 
 				echo json_encode($data);
 				exit;
-				//$this->session->set_flashdata("errorlogo", $data['error']);
-				//redirect("admin/school-management/edit/" . $school_id);
-				//die();
 
 			} else {
 
@@ -739,13 +742,14 @@ class School_management extends Base_Admin_Controller {
 			}
 
 		}
+
 		$this->load->model("MSchool", "school");
 		$school_id = $this->school->schoolImageupdate($school_id, $school_img);
 		echo $school_id;
 	}
 
 	public function editschoollogo() {
-
+		$this->load->library('resizeimage');
 		$school_id = $this->input->post("school_id");
 
 		if (isset($_FILES['editschool_logo']) && $_FILES['editschool_logo']['name'] != "") {
@@ -767,6 +771,58 @@ class School_management extends Base_Admin_Controller {
 				mkdir('./uploads/thumble/', 0777, true);
 
 			}
+
+			$config['upload_path'] = "./uploads/big/";
+			$config['allowed_types'] = "gif|jpg|jpeg|png";
+			$config['max_size'] = '0';
+			$config['max_width'] = '0';
+			$config['max_height'] = '0';
+			$config['encrypt_name'] = true;
+			$this->load->library('upload', $config);
+
+			if (!$this->upload->do_upload('editschool_logo')) {
+
+				$data['error'] = $this->upload->display_errors();
+				header('Content-Type: application/json; charset=utf-8');
+				echo json_encode($data);
+				exit;
+			} else {
+				$finfo = $this->upload->data();
+				$this->load->library('image_lib');
+				$path = './uploads/big/' . $finfo['file_name'];
+				$resizedpath = './uploads/thumble/' . $finfo['raw_name'] . $finfo['file_ext'];
+				$img_profile = $this->resizeimage->smart_resize_image($path, null, 150, 150, false, $resizedpath, false, false, 100);
+				$config4['new_image'] = './uploads/thumble/' . $finfo['raw_name'] . $finfo['file_ext'];
+				$this->image_lib->initialize($config4);
+				$this->image_lib->clear();
+				$config2['image_library'] = "gd2";
+				$config2['source_image'] = './uploads/big/' . $finfo['file_name'];
+				$config2['new_image'] = './uploads/thumb/' . $finfo['file_name'];
+				$config2['create_thumb'] = TRUE;
+				$config2['maintain_ratio'] = FALSE;
+				$config2['width'] = '200';
+				$config2['height'] = '150';
+
+				$this->image_lib->initialize($config2);
+				if (!$this->image_lib->resize()) {
+					$data['error'] = $this->upload->display_errors();
+					header('Content-Type: application/json; charset=utf-8');
+					echo json_encode($data);
+				}
+				//echo $path= "./uploads/athletes/thumb/" .$finfo['file_name'];
+				//$this->_createThumbnail($finfo['file_name']);
+				//$data['uploadInfo'] = $finfo;
+				$data['thumbnail_name'] = $finfo['raw_name'] . $finfo['file_ext'];
+				$data['image'] = $finfo['file_name'];
+				//echo '<pre>';
+				//print_r($config2['new_image']);
+				$this->image_lib->clear();
+				$this->load->model("MSchool", "school");
+				$school_id = $this->school->schoolLogoupdate($school_id, $data['image']);
+				echo $school_id;
+				exit;
+			}
+			exit;
 			$this->load->library('image_lib');
 
 			$config['upload_path'] = './uploads/big/';
@@ -783,7 +839,7 @@ class School_management extends Base_Admin_Controller {
 			$configThumb['image_library'] = 'gd2';
 			$configThumb['create_thumb'] = true;
 			$configThumb['new_image'] = './uploads/thumb/';
-			$configThumb['maintain_ratio'] = true;
+			$configThumb['maintain_ratio'] = FALSE;
 			$configThumb['width'] = 50;
 			$configThumb['height'] = 50;
 			$configThumb['thumb_marker'] = "";
@@ -794,7 +850,7 @@ class School_management extends Base_Admin_Controller {
 			$configThumble['image_library'] = 'gd2';
 			$configThumble['create_thumble'] = true;
 			$configThumble['new_image'] = './uploads/thumble/';
-			$configThumble['maintain_ratio'] = true;
+			$configThumble['maintain_ratio'] = FALSE;
 			$configThumble['width'] = 300;
 			$configThumble['height'] = 300;
 			$configThumble['thumb_marker'] = "";
@@ -837,6 +893,7 @@ class School_management extends Base_Admin_Controller {
 			}
 
 		}
+
 		$this->load->model("MSchool", "school");
 		$school_id = $this->school->schoolLogoupdate($school_id, $school_logo);
 		echo $school_id;

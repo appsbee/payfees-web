@@ -502,39 +502,26 @@ $('#schoolImgedit').ajaxSubmit({
 
 $('#editschool_logo').change(function(){
 
-//alert('asfsafafaf');
-
-var ext = $('#editschool_logo').val().split('.').pop().toLowerCase();
-if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
-    alert('Invalid Extension!');
-}else{
-    //alert('true');
-
-$('#edit_schoollogo').ajaxSubmit({
-
-        //dataType: 'json',
-        //beforeSubmit: showRequest,
-        success: processJson
-    });
-
-  function processJson(data) {
-    if(data==0){
-
-   // var xurl =<?php base_url()?> + 'uploads/thumble/' + data;
-  //console.log("url"+xurl);
-  //alert(xurl);
-   //return false;
-     // logoup
-      location.reload();
-    }else{
-      alert(data.error);
-
-    }
-
+  //alert('asfsafafaf');
+  var ext = $('#editschool_logo').val().split('.').pop().toLowerCase();
+  if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
+      alert('Invalid Extension!');
+  }else{
+      //alert('true');
+    $('#edit_schoollogo').ajaxSubmit({
+            //dataType: 'json',
+            //beforeSubmit: showRequest,
+            success: processJson
+        });
+      function processJson(data) {
+        alert(data);return false;
+        if(data==0){
+          location.reload();
+        }else{
+          alert(data.error);
+        }
+      }
   }
-
-}
-
 
 });
 

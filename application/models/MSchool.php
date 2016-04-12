@@ -98,11 +98,9 @@ class MSchool extends CI_Model {
 	function schoolLogoupdate($school_id, $school_logo) {
 		$data = array();
 		$this->db->where('id', $school_id);
-
 		$data['school_logo'] = $school_logo;
-
-		$this->db->update('schools', $data);
-		return $this->db->insert_id();
+		return $this->db->update('schools', $data);
+		//return $this->db->affected_rows();
 	}
 
 }
