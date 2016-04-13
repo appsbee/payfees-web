@@ -791,7 +791,7 @@ class School_management extends Base_Admin_Controller {
 				$this->load->library('image_lib');
 				$path = './uploads/big/' . $finfo['file_name'];
 				$resizedpath = './uploads/thumble/' . $finfo['raw_name'] . $finfo['file_ext'];
-				$img_profile = $this->resizeimage->smart_resize_image($path, null, 150, 150, false, $resizedpath, false, false, 100);
+				$img_profile = $this->resizeimage->smart_resize_image($path, null, 142, 142, false, $resizedpath, false, false, 100);
 				$config4['new_image'] = './uploads/thumble/' . $finfo['raw_name'] . $finfo['file_ext'];
 				$this->image_lib->initialize($config4);
 				$this->image_lib->clear();
@@ -819,8 +819,10 @@ class School_management extends Base_Admin_Controller {
 				$this->image_lib->clear();
 				$this->load->model("MSchool", "school");
 				$school_id = $this->school->schoolLogoupdate($school_id, $data['image']);
-				header('Content-Type', 'application/json');
-				echo json_encode(array('id' => '1'));
+				//header('Content-Type', 'application/json');
+
+				//echo json_encode(array('id' => '1'));
+				echo $school_id;
 				exit;
 			}
 			exit;

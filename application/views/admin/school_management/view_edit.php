@@ -514,8 +514,8 @@ $('#editschool_logo').change(function(){
             success: processJson
         });
       function processJson(data) {
-        alert(data);return false;
-        if(data==0){
+       // alert(data);return false;
+        if(data==1){
           location.reload();
         }else{
           alert(data.error);

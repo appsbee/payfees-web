@@ -1,4 +1,5 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');?>
 
   <!-- START MAIN -->
@@ -12,7 +13,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                     <li class="user-details cyan darken-2">
                         <div class="row">
                             <div class="col col s4 m4 l4">
-                                <img src="<?php echo base_url("assets/images/avatar.jpg"); ?>" alt="" class="circle responsive-img valign profile-image">
+
+
+
+                            <?php
+
+if ($this->session->school_logo) {
+	$logourl = base_url() . 'uploads/thumble/' . $this->session->school_logo;
+} else {
+	$logourl = base_url() . 'images/images.jpg';
+
+}
+?>
+<img id="" src="<?php echo $logourl; ?>" alt="Smiley face" class="circle responsive-img valign profile-image">
+<!--
+                                <img src="<?php echo base_url("assets/images/avatar.jpg"); ?>" alt="" class="circle responsive-img valign profile-image"> -->
                             </div>
                             <div class="col col s8 m8 l8">
                                 <ul id="profile-dropdown" class="dropdown-content">

@@ -25,30 +25,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
   <!-- CORE CSS-->
-  
-  <link href="<?php echo base_url("assets/css/materialize.css");?>" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="<?php echo base_url("assets/css/style.css");?>" type="text/css" rel="stylesheet" media="screen,projection">
-    <!-- Custome CSS-->    
-    <link href="<?php echo base_url("assets/css/custom-style.css");?>" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="<?php echo base_url("assets/css/page-center.css");?>" type="text/css" rel="stylesheet" media="screen,projection">
+
+  <link href="<?php echo base_url("assets/css/materialize.css"); ?>" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="<?php echo base_url("assets/css/style.css"); ?>" type="text/css" rel="stylesheet" media="screen,projection">
+    <!-- Custome CSS-->
+    <link href="<?php echo base_url("assets/css/custom-style.css"); ?>" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="<?php echo base_url("assets/css/page-center.css"); ?>" type="text/css" rel="stylesheet" media="screen,projection">
 
   <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
-  <link href="<?php echo base_url("assets/css/prism.css");?>" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="<?php echo base_url("assets/js/plugins/perfect-scrollbar/perfect-scrollbar.css");?>" type="text/css" rel="stylesheet" media="screen,projection">
-  
+  <link href="<?php echo base_url("assets/css/prism.css"); ?>" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="<?php echo base_url("assets/js/plugins/perfect-scrollbar/perfect-scrollbar.css"); ?>" type="text/css" rel="stylesheet" media="screen,projection">
+
 </head>
 
 <body class="cyan">
   <!-- Start Page Loading -->
   <div id="loader-wrapper">
-      <div id="loader"></div>        
+      <div id="loader"></div>
       <div class="loader-section section-left"></div>
       <div class="loader-section section-right"></div>
   </div>
   <!-- End Page Loading -->
 
 
-<div class="col s12"><center><img src="<?php echo base_url("assets/images/materialize-logo.png");?>" class="responsive-img"></center></div>
+<div class="col s12"><center><img src="<?php echo base_url("assets/images/materialize-logo.png"); ?>" class="responsive-img"></center></div>
 
  <?php echo form_open("admin/login/"); ?>
   <div id="login-page" class="row">
@@ -63,36 +63,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="input-field col s12">
             <i class="mdi-social-person-outline prefix"></i>
             <?php echo form_input("email", set_value("email"), array("id" => "username")); ?>
-            
+
             <label for="username" class="center-align">Username</label>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-action-lock-outline prefix"></i>
-            
+
             <?php echo form_password("password", "", array("id" => "password")); ?>
             <label for="password" class="center-align">Password</label>
           </div>
         </div>
-        <div class="row">          
+        <div class="row">
           <div class="input-field col s12 m12 l12  login-text">
-              <input type="checkbox" id="remember-me" />
+              <input type="checkbox" id="remember-me" name="remember_me" />
               <label for="remember-me">Remember me</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-          
+
           <button type="submit" name="submit" value="login"
                class="btn waves-effect waves-light col s12">
                 <span class="bigger-110">Login</span>
              </button>
-          
+
            <!-- <a href="page-blank.html" class="btn waves-effect waves-light col s12">Login</a> -->
           </div>
         </div>
-        
+
         <div class="" style="height:20px;">
            <p style="color:red;text-align:center;"><?php echo $this->session->flashdata('error'); ?>
 
@@ -103,16 +103,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
           <div class="input-field col s5 m5 l5">
          <!--   <p class="margin medium-small"><a href="page-blank.html">Register Now!</a></p> -->
-          </div> 
+          </div>
           <div class="input-field col s7 m7 l7">
-              <p class="margin right-align medium-small"><a href="<?php echo site_url("admin/Forgotpassword/");?>">Forgot password ?</a></p>
-          </div>          
+              <p class="margin right-align medium-small"><a href="<?php echo site_url("admin/Forgotpassword/"); ?>">Forgot password ?</a></p>
+          </div>
         </div>
 
       </form>
     </div>
   </div>
- 
+
 
 
   <!-- ================================================
@@ -120,16 +120,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     ================================================ -->
 
   <!-- jQuery Library -->
-  <script type="text/javascript" src="<?php echo base_url("assets/js/jquery-1.11.2.min.js");?>"></script>
+  <script type="text/javascript" src="<?php echo base_url("assets/js/jquery-1.11.2.min.js"); ?>"></script>
   <!--materialize js-->
-  <script type="text/javascript" src="<?php echo base_url("assets/js/materialize.js");?>"></script>
+  <script type="text/javascript" src="<?php echo base_url("assets/js/materialize.js"); ?>"></script>
   <!--prism-->
-  <script type="text/javascript" src="<?php echo base_url("assets/js/prism.js");?>"></script>
+  <script type="text/javascript" src="<?php echo base_url("assets/js/prism.js"); ?>"></script>
   <!--scrollbar-->
-  <script type="text/javascript" src="<?php echo base_url("assets/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js");?>"></script>
+  <script type="text/javascript" src="<?php echo base_url("assets/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js"); ?>"></script>
 
   <!--plugins.js - Some Specific JS codes for Plugin Settings-->
-  <script type="text/javascript" src="<?php echo base_url("assets/js/plugins.js");?>"></script>
+  <script type="text/javascript" src="<?php echo base_url("assets/js/plugins.js"); ?>"></script>
 
 </body>
 
