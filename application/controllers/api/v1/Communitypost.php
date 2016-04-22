@@ -160,6 +160,9 @@ $minite = $hours / 60;
 				$attachmentfile = $fileData['file_name'];
 
 			}
+
+		} else {
+			$attachmentfile = "";
 		}
 
 		$response = $this->Communitypostapi->postmessage($communitymember_id, $community_id, $title, $message, $attachmentfile);
@@ -282,7 +285,7 @@ $minite = $hours / 60;
 
 	public function getPostcommentbyId_get() {
 		$communitypost_id = $this->get('communitypost_id', true);
-
+		//echo $communitypost_id;die();
 		$response = $this->Communitypostapi->commentgetbyPostid($communitypost_id);
 		if (isset($response) && is_array($response) && count($response)) {
 			$this->send_success($response);

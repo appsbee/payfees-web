@@ -98,6 +98,7 @@ class Communitypostapi extends CI_Model {
 	function postmessage($communitymember_id, $community_id, $title, $message, $attachmentfile) {
 		$data = array(
 			'communitymember_id' => $communitymember_id,
+			'posted_by' => $communitymember_id,
 			'community_id' => $community_id,
 			'title' => $title,
 			'message' => $message,

@@ -105,7 +105,8 @@ class Communityapi extends CI_Model {
 			} else {
 				$join['join'] = "false";
 			}
-
+			//echo '<pre>';
+			//print_r($comuntybyuser);die();
 			$mainArray[$key] = array_merge($community, $communitypost, $schoolname, $comuntybyuser, $join);
 
 			//$comuntybyuser['all'] = array_push($comuntybyuser[$key]['community'], $comuntybyuser[$key]['communitypost']);
